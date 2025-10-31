@@ -1,0 +1,849 @@
+2025-10-30 20:08:56,740 sagemaker-containers INFO     Imported framework sagemaker_bootstrap
+2025-10-30 20:08:56,741 sagemaker_bootstrap INFO     SM_USER_ARGS=["--aws_region","us-east-1","--heartbeat_s3_location","s3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/eval_job_status.json","--kinesis_stream_name","dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df","--model_metadata_s3_key","s3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/model_metadata.json","--s3_bucket","aws-deepracer-data-us-east-1-1","--s3_prefix","data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/","--s3_ros_log_bucket","aws-deepracer-ros-logs-us-east-1-1","--s3_yaml_name","eval_params_9d8f1614-b23e-4bb1-aab6-7b452ca957a7.yaml","--simulation_launch_file","evaluation.launch","--world_name","reinvent_base"]
+2025-10-30 20:08:56,741 sagemaker_bootstrap INFO     All eniron vars=environ({'PYTHONUNBUFFERED': '1', 'AWS_CONTAINER_CREDENTIALS_RELATIVE_URI': '/v2/credentials/proxy-4336812f327bff85d07598171299e64f30c398a39bfbb4a7e9d71659a4889680-customer', 'SAGEMAKER_TRAINING_MODULE': 'sagemaker_bootstrap:sageonly', 'HOSTNAME': 'ip-10-0-56-140.ec2.internal', 'AWS_REGION': 'us-east-1', 'PWD': '/opt/ml/code', 'SAGEMAKER_MANAGED_WARMPOOL_CACHE_DIRECTORY': '/opt/ml/sagemaker/warmpoolcache', 'HOME': '/root', 'DMLC_INTERFACE': 'eth0', 'PYTHONPATH': '/opt/ml/code/:', 'SHLVL': '0', 'CONDA_DIR': '/root/anaconda/', 'PYTHONDONTWRITEBYTECODE': '1', 'TRAINING_JOB_NAME': 'dr-sm-rlej-372026249783-20251030200413-231b01dc-8122-4b17-92d5', 'TRAINING_JOB_ARN': 'arn:aws:sagemaker:us-east-1:372026249783:training-job/dr-sm-rlej-372026249783-20251030200413-231b01dc-8122-4b17-92d5', 'PATH': '/root/anaconda//bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'ROS_DISTRO': 'noetic', '_': '/usr/local/bin/train', 'LC_CTYPE': 'C.UTF-8', 'SAGEMAKER_JOB_NAME': '', 'CURRENT_HOST': 'algo-1', 'SAGEMAKER_REGION': '', 'SM_HOSTS': '["algo-1"]', 'SM_NETWORK_INTERFACE_NAME': 'eth0', 'SM_HPS': '{"aws_region":"us-east-1","heartbeat_s3_location":"s3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/eval_job_status.json","kinesis_stream_name":"dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df","model_metadata_s3_key":"s3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/model_metadata.json","s3_bucket":"aws-deepracer-data-us-east-1-1","s3_prefix":"data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/","s3_ros_log_bucket":"aws-deepracer-ros-logs-us-east-1-1","s3_yaml_name":"eval_params_9d8f1614-b23e-4bb1-aab6-7b452ca957a7.yaml","simulation_launch_file":"evaluation.launch","world_name":"reinvent_base"}', 'SM_RESOURCE_CONFIG': '{"current_group_name":"homogeneousCluster","current_host":"algo-1","current_instance_type":"ml.c5.4xlarge","hosts":["algo-1"],"instance_groups":[{"hosts":["algo-1"],"instance_group_name":"homogeneousCluster","instance_type":"ml.c5.4xlarge"}],"network_interface_name":"eth0","topology":null}', 'SM_INPUT_DATA_CONFIG': '{}', 'SM_OUTPUT_DATA_DIR': '/opt/ml/output/data', 'SM_CHANNELS': '[]', 'SM_CURRENT_HOST': 'algo-1', 'SM_MODULE_NAME': '', 'SM_LOG_LEVEL': '20', 'SM_FRAMEWORK_MODULE': 'sagemaker_bootstrap:sageonly', 'SM_INPUT_DIR': '/opt/ml/input', 'SM_INPUT_CONFIG_DIR': '/opt/ml/input/config', 'SM_OUTPUT_DIR': '/opt/ml/output', 'SM_NUM_CPUS': '16', 'SM_NUM_GPUS': '0', 'SM_MODEL_DIR': '/opt/ml/model', 'SM_MODULE_DIR': '', 'SM_TRAINING_ENV': '{"channel_input_dirs":{},"current_host":"algo-1","framework_module":"sagemaker_bootstrap:sageonly","hosts":["algo-1"],"hyperparameters":{"aws_region":"us-east-1","heartbeat_s3_location":"s3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/eval_job_status.json","kinesis_stream_name":"dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df","model_metadata_s3_key":"s3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/model_metadata.json","s3_bucket":"aws-deepracer-data-us-east-1-1","s3_prefix":"data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/","s3_ros_log_bucket":"aws-deepracer-ros-logs-us-east-1-1","s3_yaml_name":"eval_params_9d8f1614-b23e-4bb1-aab6-7b452ca957a7.yaml","simulation_launch_file":"evaluation.launch","world_name":"reinvent_base"},"input_config_dir":"/opt/ml/input/config","input_data_config":{},"input_dir":"/opt/ml/input","job_name":"dr-sm-rlej-372026249783-20251030200413-231b01dc-8122-4b17-92d5","log_level":20,"model_dir":"/opt/ml/model","module_dir":"","module_name":"","network_interface_name":"eth0","num_cpus":16,"num_gpus":0,"output_data_dir":"/opt/ml/output/data","output_dir":"/opt/ml/output","resource_config":{"current_group_name":"homogeneousCluster","current_host":"algo-1","current_instance_type":"ml.c5.4xlarge","hosts":["algo-1"],"instance_groups":[{"hosts":["algo-1"],"instance_group_name":"homogeneousCluster","instance_type":"ml.c5.4xlarge"}],"network_interface_name":"eth0","topology":null}}', 'SM_USER_ARGS': '["--aws_region","us-east-1","--heartbeat_s3_location","s3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/eval_job_status.json","--kinesis_stream_name","dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df","--model_metadata_s3_key","s3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/model_metadata.json","--s3_bucket","aws-deepracer-data-us-east-1-1","--s3_prefix","data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/","--s3_ros_log_bucket","aws-deepracer-ros-logs-us-east-1-1","--s3_yaml_name","eval_params_9d8f1614-b23e-4bb1-aab6-7b452ca957a7.yaml","--simulation_launch_file","evaluation.launch","--world_name","reinvent_base"]', 'SM_HP_AWS_REGION': 'us-east-1', 'SM_HP_HEARTBEAT_S3_LOCATION': 's3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/eval_job_status.json', 'SM_HP_KINESIS_STREAM_NAME': 'dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df', 'SM_HP_MODEL_METADATA_S3_KEY': 's3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/model_metadata.json', 'SM_HP_S3_BUCKET': 'aws-deepracer-data-us-east-1-1', 'SM_HP_S3_PREFIX': 'data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/', 'SM_HP_S3_ROS_LOG_BUCKET': 'aws-deepracer-ros-logs-us-east-1-1', 'SM_HP_S3_YAML_NAME': 'eval_params_9d8f1614-b23e-4bb1-aab6-7b452ca957a7.yaml', 'SM_HP_SIMULATION_LAUNCH_FILE': 'evaluation.launch', 'SM_HP_WORLD_NAME': 'reinvent_base'})
+2025-10-30 20:08:56,741 sagemaker_bootstrap INFO     user_args_dict={'--aws_region': 'us-east-1', '--heartbeat_s3_location': 's3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/eval_job_status.json', '--kinesis_stream_name': 'dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df', '--model_metadata_s3_key': 's3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/model_metadata.json', '--s3_bucket': 'aws-deepracer-data-us-east-1-1', '--s3_prefix': 'data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/', '--s3_ros_log_bucket': 'aws-deepracer-ros-logs-us-east-1-1', '--s3_yaml_name': 'eval_params_9d8f1614-b23e-4bb1-aab6-7b452ca957a7.yaml', '--simulation_launch_file': 'evaluation.launch', '--world_name': 'reinvent_base'}
+2025-10-30 20:08:56,741 sagemaker_bootstrap INFO     Arguments to sageonly: --aws_region us-east-1 --heartbeat_s3_location s3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/eval_job_status.json --kinesis_stream_name dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df --model_metadata_s3_key s3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/model_metadata.json --s3_bucket aws-deepracer-data-us-east-1-1 --s3_prefix data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/ --s3_ros_log_bucket aws-deepracer-ros-logs-us-east-1-1 --s3_yaml_name eval_params_9d8f1614-b23e-4bb1-aab6-7b452ca957a7.yaml --simulation_launch_file evaluation.launch --world_name reinvent_base --job_name dr-sm-rlej-372026249783-20251030200413-231b01dc-8122-4b17-92d5
+2025-10-30 20:08:56,741 sagemaker_bootstrap INFO     Launching training command: /opt/ml/code/sageonly_evals.sh --aws_region us-east-1 --heartbeat_s3_location s3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/eval_job_status.json --kinesis_stream_name dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df --model_metadata_s3_key s3://aws-deepracer-data-us-east-1-1/data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/model_metadata.json --s3_bucket aws-deepracer-data-us-east-1-1 --s3_prefix data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/ --s3_ros_log_bucket aws-deepracer-ros-logs-us-east-1-1 --s3_yaml_name eval_params_9d8f1614-b23e-4bb1-aab6-7b452ca957a7.yaml --simulation_launch_file evaluation.launch --world_name reinvent_base --job_name dr-sm-rlej-372026249783-20251030200413-231b01dc-8122-4b17-92d5
+Starting sageonly_evals.sh
+HOSTNAME -I 10.0.56.140 169.254.255.18 
+Running simulation job on single sagemaker instance...
+... logging to /root/.ros/log/4450a3e4-b5cc-11f0-8d4d-ee41d2184ad9/roslaunch-ip-10-0-56-140.ec2.internal-75.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+#033]2;/opt/amazon/install/deepracer_simulation_environment/share/deepracer_simulation_environment/launch/evaluation.launch#007
+#033[1mstarted roslaunch server http://127.0.0.1:42233/#033[0m
+SUMMARY
+========
+PARAMETERS
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+NODES
+  /
+    download_params_and_roslaunch_agent_node (deepracer_simulation_environment/download_params_and_roslaunch_agent.py)
+auto-starting new master
+#033[1mprocess[master]: started with pid [108]#033[0m
+#033[1mROS_MASTER_URI=http://localhost:11311#033[0m
+#033]2;/opt/amazon/install/deepracer_simulation_environment/share/deepracer_simulation_environment/launch/evaluation.launch http://localhost:11311#007
+#033[1msetting /run_id to 4450a3e4-b5cc-11f0-8d4d-ee41d2184ad9#033[0m
+#033[1mprocess[rosout-1]: started with pid [133]#033[0m
+started core service [/rosout]
+#033[1mprocess[download_params_and_roslaunch_agent_node-2]: started with pid [140]#033[0m
+Writing sim job pid ['75', '108', '140', '140'] to /opt/ml/simapp-job.pid
+[s3] Successfully downloaded yaml file from s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/eval_params_9d8f1614-b23e-4bb1-aab6-7b452ca957a7.yaml to local ./custom_files/eval_params_9d8f1614-b23e-4bb1-aab6-7b452ca957a7.yaml.
+World name passed in YAML: reinvent_base
+{'AWS_REGION': 'us-east-1', 'ROBOMAKER_SIMULATION_JOB_ACCOUNT_ID': '372026249783', 'JOB_TYPE': 'EVALUATION', 'WORLD_NAME': 'reinvent_base', 'MODEL_S3_BUCKET': ['aws-deepracer-data-us-east-1-1'], 'MODEL_S3_PREFIX': ['data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/'], 'METRICS_S3_BUCKET': ['aws-deepracer-data-us-east-1-1'], 'METRICS_S3_OBJECT_KEY': ['data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/metrics/evaluation/evaluation-20251030200413-vYAA9w3xRAqa0DoseZSLFw.json'], 'MP4_S3_BUCKET': 'aws-deepracer-data-us-east-1-1', 'MP4_S3_OBJECT_PREFIX': 'data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/videos/evaluation/evaluation-20251030200413-vYAA9w3xRAqa0DoseZSLFw/', 'SIMTRACE_S3_BUCKET': 'aws-deepracer-data-us-east-1-1', 'SIMTRACE_S3_PREFIX': 'data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sim-trace/evaluation/20251030200413-vYAA9w3xRAqa0DoseZSLFw/', 'S3_KMS_CMK_ARN': 'arn:aws:kms:us-east-1:372026249783:key/55056074-cb58-42d8-8f6e-ad357cf4b47e', 'NUMBER_OF_TRIALS': 3, 'KINESIS_VIDEO_STREAM_NAME': 'dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df', 'VIDEO_JOB_TYPE': 'EVALUATION', 'MODEL_NAME': 'deepModel-clone3-clone', 'RACER_NAME': 'MachineOrder#3860', 'CAR_COLOR': ['Blue'], 'BODY_SHELL_TYPE': ['deepracer'], 'IS_CONTINUOUS': False, 'NUMBER_OF_RESETS': 10000, 'RACE_TYPE': 'TIME_TRIAL', 'MODEL_METADATA_FILE_S3_KEY': ['data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/model_metadata.json']}
+[s3] Successfully downloaded model metadata                  from s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/model_metadata.json to local ./custom_files/racecar/model_metadata.json.
+Sensor list ['FRONT_FACING_CAMERA'], network DEEP_CONVOLUTIONAL_NETWORK_SHALLOW, simapp_version 5.0, training_algorithm clipped_ppo, action_space_type continuous lidar_config {'num_sectors': 8, 'num_values_per_sector': 8, 'clipping_dist': 2.0}
+... logging to /root/.ros/log/4450a3e4-b5cc-11f0-8d4d-ee41d2184ad9/roslaunch-ip-10-0-56-140.ec2.internal-168.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+#033]2;/opt/amazon/install/deepracer_simulation_environment/share/deepracer_simulation_environment/launch/evaluation_rl_agent.launch#007
+xacro: in-order processing became default in ROS Melodic. You can drop the option.
+#033[1mstarted roslaunch server http://127.0.0.1:34547/#033[0m
+SUMMARY
+========
+PARAMETERS
+ * /AWS_REGION: us-east-1
+ * /BODY_SHELL_TYPE: deepracer
+ * /CAR_COLOR: Blue
+ * /IS_CONTINUOUS: False
+ * /JOB_TYPE: EVALUATION
+ * /KINESIS_VIDEO_STREAM_NAME: dr-kvs-3720262497...
+ * /METRICS_S3_BUCKET: aws-deepracer-dat...
+ * /METRICS_S3_OBJECT_KEY: data-4372c5a4-77d...
+ * /MODEL_NAME: deepModel-clone3-...
+ * /MODEL_S3_BUCKET: aws-deepracer-dat...
+ * /MODEL_S3_PREFIX: data-4372c5a4-77d...
+ * /MP4_S3_BUCKET: aws-deepracer-dat...
+ * /MP4_S3_OBJECT_PREFIX: data-4372c5a4-77d...
+ * /NUMBER_OF_RESETS: 10000
+ * /NUMBER_OF_TRIALS: 3
+ * /RACER_NAME: MachineOrder#3860
+ * /RACE_TYPE: TIME_TRIAL
+ * /ROBOMAKER_SIMULATION_JOB_ACCOUNT_ID: 372026249783
+ * /S3_KMS_CMK_ARN: arn:aws:kms:us-ea...
+ * /SIMTRACE_S3_BUCKET: aws-deepracer-dat...
+ * /SIMTRACE_S3_PREFIX: data-4372c5a4-77d...
+ * /VIDEO_JOB_TYPE: EVALUATION
+ * /WORLD_NAME: reinvent_base
+ * /racecar/gazebo_ros_control/pid_gains/left_front_wheel_joint/d: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/left_front_wheel_joint/i: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/left_front_wheel_joint/i_clamp: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/left_front_wheel_joint/p: 0.5
+ * /racecar/gazebo_ros_control/pid_gains/left_rear_wheel_joint/d: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/left_rear_wheel_joint/i: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/left_rear_wheel_joint/i_clamp: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/left_rear_wheel_joint/p: 1.0
+ * /racecar/gazebo_ros_control/pid_gains/left_steering_hinge_joint/d: 0.5
+ * /racecar/gazebo_ros_control/pid_gains/left_steering_hinge_joint/i: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/left_steering_hinge_joint/p: 1.0
+ * /racecar/gazebo_ros_control/pid_gains/right_front_wheel_joint/d: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/right_front_wheel_joint/i: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/right_front_wheel_joint/i_clamp: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/right_front_wheel_joint/p: 0.5
+ * /racecar/gazebo_ros_control/pid_gains/right_rear_wheel_joint/d: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/right_rear_wheel_joint/i: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/right_rear_wheel_joint/i_clamp: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/right_rear_wheel_joint/p: 1.0
+ * /racecar/gazebo_ros_control/pid_gains/right_steering_hinge_joint/d: 0.5
+ * /racecar/gazebo_ros_control/pid_gains/right_steering_hinge_joint/i: 0.0
+ * /racecar/gazebo_ros_control/pid_gains/right_steering_hinge_joint/p: 1.0
+ * /racecar/h264_video_encoder/bitrate: 2048000
+ * /racecar/h264_video_encoder/fps_denominator: 1
+ * /racecar/h264_video_encoder/fps_numerator: 15
+ * /racecar/h264_video_encoder/image_transport: raw
+ * /racecar/h264_video_encoder/publication_topic: /racecar/b9/kvs/v...
+ * /racecar/h264_video_encoder/subscription_topic: /racecar/deeprace...
+ * /racecar/joint_state_controller/publish_rate: 60
+ * /racecar/joint_state_controller/type: joint_state_contr...
+ * /racecar/kinesis_video_streamer/aws_client_configuration/connect_timeout_ms: 9000
+ * /racecar/kinesis_video_streamer/aws_client_configuration/max_retries: 10
+ * /racecar/kinesis_video_streamer/aws_client_configuration/region: us-east-1
+ * /racecar/kinesis_video_streamer/aws_client_configuration/request_timeout_ms: 9000
+ * /racecar/kinesis_video_streamer/kinesis_video/log4cplus_config: /opt/amazon/insta...
+ * /racecar/kinesis_video_streamer/kinesis_video/stream0/frame_rate: 30
+ * /racecar/kinesis_video_streamer/kinesis_video/stream0/frame_timecodes: False
+ * /racecar/kinesis_video_streamer/kinesis_video/stream0/key_frame_fragmentation: False
+ * /racecar/kinesis_video_streamer/kinesis_video/stream0/stream_name: dr-kvs-3720262497...
+ * /racecar/kinesis_video_streamer/kinesis_video/stream0/subscription_topic: /racecar/b9/kvs/v...
+ * /racecar/kinesis_video_streamer/kinesis_video/stream0/topic_type: 1
+ * /racecar/kinesis_video_streamer/kinesis_video/stream_count: 1
+ * /racecar/left_front_wheel_velocity_controller/joint: left_front_wheel_...
+ * /racecar/left_front_wheel_velocity_controller/pid/d: 0.0
+ * /racecar/left_front_wheel_velocity_controller/pid/i: 0.0
+ * /racecar/left_front_wheel_velocity_controller/pid/i_clamp: 0.0
+ * /racecar/left_front_wheel_velocity_controller/pid/p: 0.5
+ * /racecar/left_front_wheel_velocity_controller/type: velocity_controll...
+ * /racecar/left_rear_wheel_velocity_controller/joint: left_rear_wheel_j...
+ * /racecar/left_rear_wheel_velocity_controller/pid/d: 0.0
+ * /racecar/left_rear_wheel_velocity_controller/pid/i: 0.0
+ * /racecar/left_rear_wheel_velocity_controller/pid/i_clamp: 0.0
+ * /racecar/left_rear_wheel_velocity_controller/pid/p: 1.0
+ * /racecar/left_rear_wheel_velocity_controller/type: velocity_controll...
+ * /racecar/left_steering_hinge_position_controller/joint: left_steering_hin...
+ * /racecar/left_steering_hinge_position_controller/pid/d: 0.5
+ * /racecar/left_steering_hinge_position_controller/pid/i: 0.0
+ * /racecar/left_steering_hinge_position_controller/pid/p: 1.0
+ * /racecar/left_steering_hinge_position_controller/type: position_controll...
+ * /racecar/right_front_wheel_velocity_controller/joint: right_front_wheel...
+ * /racecar/right_front_wheel_velocity_controller/pid/d: 0.0
+ * /racecar/right_front_wheel_velocity_controller/pid/i: 0.0
+ * /racecar/right_front_wheel_velocity_controller/pid/i_clamp: 0.0
+ * /racecar/right_front_wheel_velocity_controller/pid/p: 0.5
+ * /racecar/right_front_wheel_velocity_controller/type: velocity_controll...
+ * /racecar/right_rear_wheel_velocity_controller/joint: right_rear_wheel_...
+ * /racecar/right_rear_wheel_velocity_controller/pid/d: 0.0
+ * /racecar/right_rear_wheel_velocity_controller/pid/i: 0.0
+ * /racecar/right_rear_wheel_velocity_controller/pid/i_clamp: 0.0
+ * /racecar/right_rear_wheel_velocity_controller/pid/p: 1.0
+ * /racecar/right_rear_wheel_velocity_controller/type: velocity_controll...
+ * /racecar/right_steering_hinge_position_controller/joint: right_steering_hi...
+ * /racecar/right_steering_hinge_position_controller/pid/d: 0.5
+ * /racecar/right_steering_hinge_position_controller/pid/i: 0.0
+ * /racecar/right_steering_hinge_position_controller/pid/p: 1.0
+ * /racecar/right_steering_hinge_position_controller/type: position_controll...
+ * /racecar/robot_description: <?xml version="1....
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+ * /use_sim_time: True
+NODES
+  /
+    agent (deepracer_simulation_environment/run_evaluation_rl_agent.sh)
+    agents_video_editor (deepracer_simulation_environment/agents_video_editor.py)
+    car_reset_node (deepracer_simulation_environment/car_node.py)
+    gazebo (gazebo_ros/gzserver)
+  /racecar/
+    controller_manager (controller_manager/spawner)
+    h264_video_encoder (h264_video_encoder/h264_video_encoder)
+    kinesis_video_streamer (kinesis_video_streamer/kinesis_video_streamer)
+    racecar_spawn (gazebo_ros/spawn_model)
+    robot_state_publisher (robot_state_publisher/robot_state_publisher)
+#033[1mROS_MASTER_URI=http://localhost:11311#033[0m
+#033]2;/opt/amazon/install/deepracer_simulation_environment/share/deepracer_simulation_environment/launch/evaluation_rl_agent.launch http://localhost:11311#007
+#033[1mprocess[racecar/racecar_spawn-1]: started with pid [214]#033[0m
+#033[1mprocess[racecar/controller_manager-2]: started with pid [215]#033[0m
+#033[1mprocess[racecar/robot_state_publisher-3]: started with pid [216]#033[0m
+#033[1mprocess[racecar/h264_video_encoder-4]: started with pid [217]#033[0m
+#033[1mprocess[racecar/kinesis_video_streamer-5]: started with pid [218]#033[0m
+#033[1mprocess[gazebo-6]: started with pid [219]#033[0m
+#033[33m[WARN] [1761854939.702078330]: [ClientConfiguration] Retry Strategy will use the default max attempts.#033[0m
+#033[33m[WARN] [1761854939.702194988]: [ClientConfiguration] Retry Strategy will use the default max attempts.#033[0m
+#033[1mprocess[car_reset_node-7]: started with pid [236]#033[0m
+#033[33m[WARN] [1761854939.714733020]: [STSAssumeRoleWithWebIdentityCredentialsProvider] Token file must be specified to use STS AssumeRole web identity creds provider.#033[0m
+#033[33m[WARN] [1761854939.714789160]: [ClientConfiguration] Retry Strategy will use the default max attempts.#033[0m
+#033[31m[ERROR] [1761854939.715012372]: [ProcessCredentialsProvider] Failed to find credential process's profile: default#033[0m
+#033[33m[WARN] [1761854939.716313222]: [STSAssumeRoleWithWebIdentityCredentialsProvider] Token file must be specified to use STS AssumeRole web identity creds provider.#033[0m
+#033[33m[WARN] [1761854939.716353168]: [ClientConfiguration] Retry Strategy will use the default max attempts.#033[0m
+#033[31m[ERROR] [1761854939.716842001]: [ProcessCredentialsProvider] Failed to find credential process's profile: default#033[0m
+#033[1mprocess[agents_video_editor-8]: started with pid [257]#033[0m
+#033[1mprocess[agent-9]: started with pid [261]#033[0m
++ export PYTHONUNBUFFERED=1
++ PYTHONUNBUFFERED=1
++ python3 -m markov.evaluation_worker
++ python3 /opt/amazon/script/start_deepracer_node_monitor.py --node_monitor_file_path /opt/amazon/src/deepracer_node_monitor/config/deepracer_node_monitor_list.txt
+#033[31m[ERROR] [1761854939.835232064]: [ProcessCredentialsProvider] Failed to find credential process's profile: default#033[0m
+[INFO] [1761854940.193140, 0.000000]: Controller Spawner: Waiting for service controller_manager/load_controller
+[INFO] [1761854940.247486, 0.000000]: Loading model XML from ros parameter /racecar/robot_description
+[INFO] [1761854940.251914, 0.000000]: Waiting for service /gazebo/spawn_urdf_model
+08:09:00 INFO:[DeepRacerNodeMonitor]: NodeMonitor started running
+08:09:00 INFO:[DeepRacerNodeMonitor]: Skipping CW metrics upload
+08:09:00 INFO:[DeepRacerNodeMonitor]: Running nodes are {'/download_params_and_roslaunch_agent_node', '/car_reset_node', '/racecar/robot_state_publisher', '/racecar/controller_manager', '/racecar/h264_video_encoder', '/racecar/kinesis_video_streamer'}
+Publishing to KVS stream is enabled: True
+#033[31m[ERROR] [1761854941.053607857, 0.135000000]: GetModelStates: model [racecar] does not exist#033[0m
+[INFO] [1761854941.157073, 0.237000]: Calling service /gazebo/spawn_urdf_model
+[INFO] [1761854941.351712, 0.348000]: Spawn status: SpawnModel: Successfully spawned entity
+08:09:01 INFO:[DeepRacerNodeMonitor]: Running nodes are {'/download_params_and_roslaunch_agent_node', '/agents_video_editor', '/car_reset_node', '/racecar/robot_state_publisher', '/gazebo', '/racecar/controller_manager', '/racecar/kinesis_video_streamer', '/racecar/h264_video_encoder'}
+#033[1m[racecar/racecar_spawn-1] process has finished cleanly
+log file: /root/.ros/log/4450a3e4-b5cc-11f0-8d4d-ee41d2184ad9/racecar-racecar_spawn-1*.log#033[0m
+S3 bucket: aws-deepracer-data-us-east-1-1 
+ S3 prefix: data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/
+[CameraManager]: Added <markov.cameras.handlers.follow_car_camera.FollowCarCamera object at 0x7f4613622bb0> to camera_namespaces racecar
+[CameraManager]: Added <markov.cameras.handlers.top_camera.TopCamera object at 0x7f4613622ac0> to camera_namespaces racecar
+[CameraManager]: Added <markov.cameras.handlers.follow_car_camera.FollowCarCamera object at 0x7fa4efb86b50> to camera_namespaces racecar
+[CameraManager]: Added <markov.cameras.handlers.top_camera.TopCamera object at 0x7fa4efb86b20> to camera_namespaces racecar
+[s3] Successfully downloaded model metadata                  from s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/model_metadata.json to local ./custom_files/agent/model_metadata.json.
+Sensor list ['FRONT_FACING_CAMERA'], network DEEP_CONVOLUTIONAL_NETWORK_SHALLOW, simapp_version 5.0, training_algorithm clipped_ppo, action_space_type continuous lidar_config {'num_sectors': 8, 'num_values_per_sector': 8, 'clipping_dist': 2.0}
+[CameraManager]: Removed <markov.cameras.handlers.follow_car_camera.FollowCarCamera object at 0x7fa4efb86b50> from camera_namespaces racecar
+[CameraManager]: Removed <markov.cameras.handlers.top_camera.TopCamera object at 0x7fa4efb86b20> from camera_namespaces racecar
+[INFO] [1761854943.205908, 0.453000]: Controller Spawner: Waiting for service controller_manager/switch_controller
+[INFO] [1761854943.208730, 0.456000]: Controller Spawner: Waiting for service controller_manager/unload_controller
+[INFO] [1761854943.211221, 0.458000]: Loading controller: left_rear_wheel_velocity_controller
+[INFO] [1761854943.221418, 0.469000]: Loading controller: right_rear_wheel_velocity_controller
+[INFO] [1761854943.228489, 0.476000]: Loading controller: left_front_wheel_velocity_controller
+[INFO] [1761854943.235455, 0.483000]: Loading controller: right_front_wheel_velocity_controller
+[INFO] [1761854943.242492, 0.490000]: Loading controller: left_steering_hinge_position_controller
+[INFO] [1761854943.251471, 0.499000]: Loading controller: right_steering_hinge_position_controller
+[INFO] [1761854943.258548, 0.506000]: Loading controller: joint_state_controller
+[INFO] [1761854943.266519, 0.514000]: Controller Spawner: Loaded controllers: left_rear_wheel_velocity_controller, right_rear_wheel_velocity_controller, left_front_wheel_velocity_controller, right_front_wheel_velocity_controller, left_steering_hinge_position_controller, right_steering_hinge_position_controller, joint_state_controller
+[INFO] [1761854943.270512, 0.518000]: Started controllers: left_rear_wheel_velocity_controller, right_rear_wheel_velocity_controller, left_front_wheel_velocity_controller, right_front_wheel_velocity_controller, left_steering_hinge_position_controller, right_steering_hinge_position_controller, joint_state_controller
+[s3] Successfully downloaded deepracer checkpoint json from                  s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/deepracer_checkpoints.json to local checkpoint/agent/deepracer_checkpoints.json.
+08:09:03 INFO:[DeepRacerNodeMonitor]: Running nodes are {'/rl_coach_264_1761854942747', '/agents_video_editor', '/download_params_and_roslaunch_agent_node', '/racecar/robot_state_publisher', '/car_reset_node', '/gazebo', '/racecar/controller_manager', '/racecar/kinesis_video_streamer', '/racecar/h264_video_encoder'}
+[s3] Successfully uploaded temp coach checkpoint to                   s3 bucket aws-deepracer-data-us-east-1-1 with s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/.coach_checkpoint.
+Directory created or already exists: ./custom_files/iteration_data/agent/evaluation-simtrace
+Action space from file: {'steering_angle': {'high': 30, 'low': -15}, 'speed': {'high': 3.5, 'low': 1.3}}
+08:09:03 INFO:[DeepRacerNodeMonitor]: Skipping CW metrics upload
+Using the following hyper-parameters
+{
+  "batch_size": 64,
+  "beta_entropy": 0.01,
+  "discount_factor": 0.999,
+  "e_greedy_value": 0.05,
+  "epsilon_steps": 10000,
+  "exploration_type": "categorical",
+  "loss_type": "mean squared error",
+  "lr": 0.0003,
+  "num_episodes_between_training": 20,
+  "num_epochs": 10,
+  "stack_size": 1,
+  "term_cond_avg_score": 100000.0,
+  "term_cond_max_episodes": 100000
+}
+Pausing physics after initializing the cars
+Topic [reinvent_base//racecar/main_camera/camera_link/camera_sensor/image] is not valid.
+#033[0m[INFO] [1761854940.513287321]: DeepRacerGazeboSystemPlugin: Load#033[0m
+#033[0m[INFO] [1761854940.514264403]: DeepRacerGazeboSystemPlugin: Finished loading.#033[0m
+#033[0m[INFO] [1761854940.520674541]: Finished loading Gazebo ROS API Plugin.#033[0m
+#033[0m[INFO] [1761854940.521646934]: waitForService: Service [/gazebo/set_physics_properties] has not been advertised, waiting...#033[0m
+#033[0m[INFO] [1761854940.892220101]: DeepRacerGazeboSystemPlugin: Init Complete#033[0m
+#033[0m[INFO] [1761854940.909380724]: waitForService: Service [/gazebo/set_physics_properties] is now available.#033[0m
+#033[0m[INFO] [1761854940.924151599, 0.010000000]: Physics dynamic reconfigure ready.#033[0m
+#033[0m[INFO] [1761854942.831933078, 0.348000000]: Camera Plugin: Using the 'robotNamespace' param: '/racecar/'#033[0m
+#033[0m[INFO] [1761854942.834317595, 0.348000000]: Camera Plugin (ns = /racecar/)  <tf_prefix_>, set to ""#033[0m
+#033[0m[INFO] [1761854942.895746107, 0.348000000]: Loading gazebo_ros_control plugin#033[0m
+#033[0m[INFO] [1761854942.895857674, 0.348000000]: Starting gazebo_ros_control plugin in namespace: /racecar#033[0m
+#033[0m[INFO] [1761854942.896260055, 0.348000000]: gazebo_ros_control plugin is waiting for model URDF in parameter [/racecar/robot_description] on the ROS param server.#033[0m
+#033[0m[INFO] [1761854943.100696556, 0.348000000]: Loaded gazebo_ros_control.#033[0m
+Spawning sub camera model
+#033[0m[INFO] [1761854944.338059327, 1.442000000]: Camera Plugin: Using the 'robotNamespace' param: '/racecar/main_camera'#033[0m
+#033[0m[INFO] [1761854944.340174870, 1.442000000]: Camera Plugin (ns = /racecar/main_camera)  <tf_prefix_>, set to ""#033[0m
+Topic [reinvent_base//sub_camera/camera_link/camera_sensor/image] is not valid.
+[h264_omx @ 0x55d5659cdd00] libOMX_Core.so not found
+[h264_omx @ 0x55d5659cdd00] libOmxCore.so not found
+#033[31m[ERROR] [1761854944.595222583, 1.442000000]: [open_codec] Could not open codec#033[0m
+[libx264 @ 0x55d5659cf440] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2 AVX512
+[libx264 @ 0x55d5659cf440] profile High, level 2.2
+[libx264 @ 0x55d5659cf440] 264 - core 155 r2917 0a84d98 - H.264/MPEG-4 AVC codec - Copyleft 2003-2018 - http://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=2 psy=1 psy_rd=1.00:0.00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=7 lookahead_threads=7 sliced_threads=1 slices=7 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0 weightp=1 keyint=15 keyint_min=8 scenecut=40 intra_refresh=0 rc=abr mbtree=0 bitrate=2048 ratetol=1.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+#033[31m[ERROR] [1761854944.891778749, 1.442000000]: [ProcessCredentialsProvider] Failed to find credential process's profile: default#033[0m
+#033[33m[WARN] [1761854944.903225792, 1.442000000]: [KinesisVideoFrameTransportCallback] dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df PutFrame failed. Error code: 4102#033[0m
+#033[33m[WARN] [1761854944.903413029, 1.442000000]: [KinesisVideoFrameTransportCallback] dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df PutFrame failed. Error code: 4102#033[0m
+#033[33m[WARN] [1761854944.903705398, 1.442000000]: [KinesisVideoFrameTransportCallback] dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df PutFrame failed. Error code: 4102#033[0m
+#033[33m[WARN] [1761854944.904198704, 1.442000000]: [KinesisVideoFrameTransportCallback] dr-kvs-372026249783-20251030200413-81e638c1-88b7-46d1-92fe-3dea4e7c75df PutFrame failed. Error code: 4102#033[0m
+[s3] Successfully downloaded 42_Step-17214.ckpt.data-00000-of-00001 from                  s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/42_Step-17214.ckpt.data-00000-of-00001 to local checkpoint/agent/42_Step-17214.ckpt.data-00000-of-00001.
+[s3] Successfully downloaded 42_Step-17214.ckpt.index from                  s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/42_Step-17214.ckpt.index to local checkpoint/agent/42_Step-17214.ckpt.index.
+[s3] Successfully downloaded 42_Step-17214.ckpt.meta from                  s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/42_Step-17214.ckpt.meta to local checkpoint/agent/42_Step-17214.ckpt.meta.
+[s3] Successfully downloaded .ready from                  s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sagemaker-robomaker-artifacts/model/.ready to local checkpoint/agent/.ready.
+Renaming checkpoint from checkpoint_dir: checkpoint/agent for agent: agent
+Saving updated checkpoint to ./renamed_checkpoint/42_Step-17214.ckpt
+#033[30;46mCreating graph - name: MultiAgentGraphManager#033[0m
+#033[30;46mStart physics before creating graph#033[0m
+#033[30;46mCreate graph#033[0m
+#033[30;46mCreating agent - name: agent#033[0m
+[RL] Created agent loggers
+[RL] Dynamic import of memory:  "DeepRacerMemoryParameters" {
+    "load_memory_from_file_path": null,
+    "max_size": [
+        "<MemoryGranularity.Transitions: 0>",
+        1000000
+    ],
+    "n_step": -1,
+    "shared_memory": false,
+    "train_to_eval_ratio": 1
+}
+[RL] Dynamically imported of memory <markov.memories.deepracer_memory.DeepRacerMemory object at 0x7f461175af70>
+[RL] Setting devices
+[RL] Setting filters
+[RL] Setting filter devices: numpy
+[RL] Setting Phase
+[RL] After setting Phase
+[RL] Setting signals
+[RL] Agent init successful
+[RL] ActorCriticAgent init
+[RL] ActorCriticAgent  init successful
+#033[30;46mCreated agent: agent#033[0m
+/usr/local/lib/python3.8/dist-packages/rl_coach/architectures/tensorflow_components/layers.py:119: UserWarning: `tf.layers.conv2d` is deprecated and will be removed in a future version. Please Use `tf.keras.layers.Conv2D` instead.
+  return tf.compat.v1.layers.conv2d(input_layer, filters=self.num_filters, kernel_size=self.kernel_size,
+/usr/local/lib/python3.8/dist-packages/rl_coach/architectures/tensorflow_components/layers.py:181: UserWarning: `tf.layers.dense` is deprecated and will be removed in a future version. Please use `tf.keras.layers.Dense` instead.
+  return tf.compat.v1.layers.dense(input_layer, self.units, name=name, kernel_initializer=kernel_initializer,
+/usr/local/lib/python3.8/dist-packages/rl_coach/architectures/tensorflow_components/layers.py:181: UserWarning: `tf.layers.dense` is deprecated and will be removed in a future version. Please use `tf.keras.layers.Dense` instead.
+  return tf.compat.v1.layers.dense(input_layer, self.units, name=name, kernel_initializer=kernel_initializer,
+/usr/local/lib/python3.8/dist-packages/rl_coach/architectures/tensorflow_components/layers.py:119: UserWarning: `tf.layers.conv2d` is deprecated and will be removed in a future version. Please Use `tf.keras.layers.Conv2D` instead.
+  return tf.compat.v1.layers.conv2d(input_layer, filters=self.num_filters, kernel_size=self.kernel_size,
+#033[30;46mStop physics after creating graph#033[0m
+#033[30;46mCreating session#033[0m
+#033[95mCheckpoint#033[0m - #033[94mRestoring from path: #033[0m./checkpoint/agent/42_Step-17214.ckpt 
+Graph manager successfully created the graph: Unpausing physics
+#033[30;46magent: Starting evaluation phase#033[0m
+Reset agent
+Reset agent finished
+SIM_TRACE_LOG:0,1,3.1999,0.6831,0.1831,-7.91,3.50,[-7.90813073515892 3.5],0.0000,False,True,0.7915,1,17.71,5.358,prepare,0.00,0
+SIM_TRACE_LOG:0,2,3.1997,0.6831,0.1833,-8.50,3.50,[-8.50072592496872 3.5],1.0000,False,True,0.7906,1,17.71,5.425,in_progress,0.00,0
+SIM_TRACE_LOG:0,3,3.2101,0.6852,0.8562,-15.00,2.22,[-15.0 2.2243734464049343],1.0000,False,True,0.8492,1,17.71,5.494,in_progress,0.00,0
+SIM_TRACE_LOG:0,4,3.2294,0.6849,0.6864,-15.00,3.50,[-15.0 3.5],1.0000,False,True,0.9581,1,17.71,5.556,in_progress,0.00,0
+SIM_TRACE_LOG:0,5,3.2651,0.6793,-0.7410,9.92,3.29,[9.920940063893795 3.294347101449967],1.0000,False,True,1.1596,1,17.71,5.622,in_progress,0.00,0
+SIM_TRACE_LOG:0,6,3.3160,0.6769,-1.1505,1.36,3.50,[1.3581342995166779 3.5],1.0000,False,True,1.4469,2,17.71,5.694,in_progress,0.00,0
+SIM_TRACE_LOG:0,7,3.3850,0.6845,0.9186,10.96,3.03,[10.958723276853561 3.0299241304397584],1.0000,False,True,1.8370,2,17.71,5.757,in_progress,0.00,0
+SIM_TRACE_LOG:0,8,3.4619,0.7021,4.5643,-15.00,1.30,[-15.0 1.3],1.0000,False,True,2.2708,3,17.71,5.823,in_progress,0.00,0
+SIM_TRACE_LOG:0,9,3.5433,0.7194,7.2549,-15.00,1.50,[-15.0 1.5011924386024476],1.0000,False,True,2.7309,3,17.71,5.89,in_progress,0.00,0
+SIM_TRACE_LOG:0,10,3.6377,0.7235,5.4854,-15.00,1.84,[-15.0 1.8427014887332918],1.0000,False,True,3.2640,4,17.71,5.961,in_progress,0.00,0
+SIM_TRACE_LOG:0,11,3.7413,0.7138,1.2590,-15.00,1.34,[-15.0 1.3377978920936584],1.0000,False,True,3.8485,5,17.71,6.021,in_progress,0.00,0
+SIM_TRACE_LOG:0,12,3.8424,0.6939,-3.5734,-9.42,3.50,[-9.417601525783539 3.5],1.0000,False,True,4.4198,5,17.71,6.093,in_progress,0.00,0
+SIM_TRACE_LOG:0,13,3.9466,0.6663,-8.2210,7.99,1.35,[7.990346741862595 1.3494808077812195],1.0000,False,True,5.0082,6,17.71,6.157,in_progress,0.00,0
+SIM_TRACE_LOG:0,14,4.0540,0.6427,-11.3658,8.44,3.49,[8.441466512158513 3.492158609628677],1.0000,False,True,5.6146,7,17.71,6.225,in_progress,0.00,0
+SIM_TRACE_LOG:0,15,4.1680,0.6266,-10.0254,3.55,2.85,[3.546604961156845 2.850728523731232],1.0000,False,True,6.2583,7,17.71,6.292,in_progress,0.00,0
+SIM_TRACE_LOG:0,16,4.2926,0.6234,-6.1706,-3.59,1.81,[-3.585323765873909 1.811904376745224],1.0000,False,True,6.9616,8,17.71,6.361,in_progress,0.00,0
+SIM_TRACE_LOG:0,17,4.4260,0.6218,-3.5087,27.10,1.30,[27.100127041339874 1.3],1.0000,False,True,7.7150,9,17.71,6.423,in_progress,0.00,0
+SIM_TRACE_LOG:0,18,4.5481,0.6222,-1.9323,30.00,1.30,[30.0 1.3],1.0000,False,True,8.4044,10,17.71,6.492,in_progress,0.00,0
+SIM_TRACE_LOG:0,19,4.6581,0.6277,0.0053,-3.62,1.30,[-3.624911829829216 1.3],1.0000,False,True,9.0257,11,17.71,6.559,in_progress,0.00,0
+SIM_TRACE_LOG:0,20,4.7612,0.6394,2.5886,-10.92,3.50,[-10.916277766227722 3.5],1.0000,False,True,9.6078,11,17.71,6.626,in_progress,0.00,0
+SIM_TRACE_LOG:0,21,4.8714,0.6554,4.9225,-15.00,3.20,[-15.0 3.200198554992676],1.0000,False,True,10.2299,12,17.71,6.69,in_progress,0.00,0
+SIM_TRACE_LOG:0,22,4.9923,0.6638,4.4151,-15.00,1.80,[-15.0 1.7971348524093629],1.0000,False,True,10.9125,13,17.71,6.757,in_progress,0.00,0
+SIM_TRACE_LOG:0,23,5.1208,0.6611,1.7647,14.94,2.60,[14.944170042872429 2.601339320838451],1.0000,False,True,11.6386,14,17.71,6.8260000000000005,in_progress,0.00,0
+SIM_TRACE_LOG:0,24,5.2571,0.6634,1.6411,13.43,3.50,[13.433489575982094 3.5],1.0000,False,True,12.4082,15,17.71,6.891,in_progress,0.00,0
+SIM_TRACE_LOG:0,25,5.4054,0.6847,5.1723,-15.00,1.30,[-15.0 1.3],1.0000,False,True,13.2453,16,17.71,6.959,in_progress,0.00,0
+SIM_TRACE_LOG:0,26,5.5508,0.7150,10.4491,-15.00,2.70,[-15.0 2.7010389864444733],1.0000,False,True,14.0669,17,17.71,7.025,in_progress,0.00,0
+SIM_TRACE_LOG:0,27,5.6848,0.7327,10.2893,-15.00,1.30,[-15.0 1.3],1.0000,False,True,14.8230,18,17.71,7.091,in_progress,0.00,0
+SIM_TRACE_LOG:0,28,5.8315,0.7357,5.6792,7.13,1.30,[7.130956957116723 1.3],1.0000,False,True,15.6500,19,17.71,7.156,in_progress,0.00,0
+SIM_TRACE_LOG:0,29,5.9632,0.7375,3.0603,20.06,2.18,[20.061433911323547 2.1756379663944245],1.0000,False,True,16.3929,19,17.71,7.222,in_progress,0.00,0
+SIM_TRACE_LOG:0,30,6.0794,0.7546,5.3993,30.00,1.41,[30.0 1.411592996120453],1.0000,False,True,17.0621,20,17.71,7.293,in_progress,0.00,0
+SIM_TRACE_LOG:0,31,6.1912,0.7841,9.5306,30.00,1.30,[30.0 1.3],0.5000,False,True,17.6974,21,17.71,7.361,in_progress,0.00,0
+SIM_TRACE_LOG:0,32,6.2954,0.8211,13.6685,30.00,1.30,[30.0 1.3],0.5000,False,True,18.3327,22,17.71,7.423,in_progress,0.00,0
+SIM_TRACE_LOG:0,33,6.3907,0.8638,17.6299,30.00,1.30,[30.0 1.3],0.5000,False,True,18.9370,22,17.71,7.49,in_progress,0.00,0
+SIM_TRACE_LOG:0,34,6.4798,0.9149,22.2457,30.00,1.30,[30.0 1.3],0.1000,False,True,19.6971,23,17.71,7.562,in_progress,0.00,0
+SIM_TRACE_LOG:0,35,6.5527,0.9659,26.4975,30.00,1.30,[30.0 1.3],0.1000,False,True,20.1805,24,17.71,7.63,in_progress,0.00,0
+SIM_TRACE_LOG:0,36,6.6330,1.0341,31.8839,30.00,1.30,[30.0 1.3],0.1000,False,True,20.9732,25,17.71,7.694,in_progress,0.00,0
+SIM_TRACE_LOG:0,37,6.6911,1.0985,37.2109,30.00,1.30,[30.0 1.3],0.1000,False,True,21.5771,26,17.71,7.764,in_progress,0.00,0
+SIM_TRACE_LOG:0,38,6.7474,1.1730,42.6742,30.00,1.30,[30.0 1.3],0.1000,False,True,22.2819,26,17.71,7.825,in_progress,0.00,0
+SIM_TRACE_LOG:0,39,6.7908,1.2479,48.2843,30.00,1.30,[30.0 1.3],0.1000,False,False,23.1007,27,17.71,7.893,in_progress,0.00,0
+SIM_TRACE_LOG:0,40,6.8306,1.3343,54.2916,30.00,1.30,[30.0 1.3],0.1000,False,False,23.8742,28,17.71,7.957,in_progress,0.00,0
+SIM_TRACE_LOG:0,41,6.8620,1.4203,59.6827,30.00,1.30,[30.0 1.3],0.1000,False,False,24.3847,29,17.71,8.033,in_progress,0.00,0
+SIM_TRACE_LOG:0,42,6.8829,1.5143,66.0569,25.49,1.30,[25.49297422170639 1.3],0.1000,False,False,25.1419,30,17.71,8.092,in_progress,0.00,0
+SIM_TRACE_LOG:0,43,6.8936,1.6021,71.6958,25.64,1.30,[25.642935186624527 1.3],0.1000,False,False,25.8730,31,17.71,8.156,in_progress,0.00,0
+SIM_TRACE_LOG:0,44,6.8940,1.6892,77.5753,23.99,1.30,[23.98522675037384 1.3],0.0010,False,False,26.7913,32,17.71,8.228,in_progress,0.00,0
+SIM_TRACE_LOG:0,45,6.8863,1.7757,83.3191,15.50,1.30,[15.50221972167492 1.3],0.0010,False,False,27.7115,33,17.71,8.293,in_progress,0.00,0
+SIM_TRACE_LOG:0,46,6.8712,1.8621,88.8168,-10.85,1.43,[-10.847516655921936 1.4315984189510347],0.0010,False,False,28.4097,34,17.71,8.355,in_progress,0.00,0
+SIM_TRACE_LOG:0,47,6.8576,1.9514,92.1444,30.00,1.30,[30.0 1.3],0.1000,False,False,29.1745,34,17.71,8.426,in_progress,0.00,0
+SIM_TRACE_LOG:0,48,6.8403,2.0454,95.1091,30.00,2.01,[30.0 2.00815412402153],0.1000,False,False,30.0218,35,17.71,8.489,in_progress,0.00,0
+SIM_TRACE_LOG:0,49,6.8051,2.1432,100.8111,26.83,1.30,[26.827611923217773 1.3],0.1000,False,False,30.9132,36,17.71,8.557,in_progress,0.00,0
+SIM_TRACE_LOG:0,50,6.7614,2.2282,106.7530,30.00,2.07,[30.0 2.0728750824928284],0.1000,False,False,31.6801,37,17.71,8.625,in_progress,0.00,0
+SIM_TRACE_LOG:0,51,6.7005,2.3194,113.6556,30.00,2.84,[30.0 2.842182177305222],0.1000,False,False,32.4985,38,17.71,8.69,in_progress,0.00,0
+SIM_TRACE_LOG:0,52,6.6286,2.4000,120.8755,30.00,3.03,[30.0 3.028168493509293],0.1000,False,False,33.3233,39,17.71,8.761,in_progress,0.00,0
+SIM_TRACE_LOG:0,53,6.5297,2.4831,130.2667,13.20,2.08,[13.20346400141716 2.0847275823354723],0.1000,False,False,34.2404,40,17.71,8.822,in_progress,0.00,0
+SIM_TRACE_LOG:0,54,6.4227,2.5532,139.6270,5.51,1.30,[5.506476983428001 1.3],0.1000,False,True,35.1145,41,17.71,8.89,in_progress,0.00,0
+SIM_TRACE_LOG:0,55,6.3163,2.6100,147.8051,26.91,1.30,[26.91092938184738 1.3],0.5000,False,True,35.8863,42,17.71,8.963000000000001,in_progress,0.00,0
+SIM_TRACE_LOG:0,56,6.2063,2.6599,154.5044,8.32,1.57,[8.316215565428138 1.572862446308136],0.5000,False,True,36.5550,43,17.71,9.024,in_progress,0.00,0
+SIM_TRACE_LOG:0,57,6.1106,2.6968,158.2763,24.21,2.70,[24.211971312761307 2.701108026504517],1.0000,False,True,37.0997,44,17.71,9.091,in_progress,0.00,0
+SIM_TRACE_LOG:0,58,5.9969,2.7265,161.5752,18.90,1.75,[18.90118807554245 1.7492003321647644],1.0000,False,True,37.7534,45,17.71,9.155,in_progress,0.00,0
+SIM_TRACE_LOG:0,59,5.8739,2.7420,166.6139,7.64,1.49,[7.635806864127517 1.4899647414684296],1.0000,False,True,38.4470,45,17.71,9.225,in_progress,0.00,0
+SIM_TRACE_LOG:0,60,5.7596,2.7452,171.5816,10.40,1.30,[10.402195081114769 1.3],1.0000,False,True,39.0921,46,17.71,9.292,in_progress,0.00,0
+SIM_TRACE_LOG:0,61,5.6524,2.7353,176.9956,0.86,1.53,[0.85792176425457 1.5312878727912904],1.0000,False,True,39.6981,47,17.71,9.357,in_progress,0.00,0
+SIM_TRACE_LOG:0,62,5.5525,2.7257,-179.8483,-15.00,1.30,[-15.0 1.3],1.0000,False,True,40.2614,48,17.71,9.421,in_progress,0.00,0
+SIM_TRACE_LOG:0,63,5.4563,2.7199,-178.5962,-15.00,1.30,[-15.0 1.3],1.0000,False,True,40.8047,48,17.71,9.492,in_progress,0.00,0
+SIM_TRACE_LOG:0,64,5.3559,2.7238,179.9888,-15.00,1.30,[-15.0 1.3],1.0000,False,True,41.3719,49,17.71,9.561,in_progress,0.00,0
+SIM_TRACE_LOG:0,65,5.2593,2.7379,176.9641,-15.00,1.30,[-15.0 1.3],1.0000,False,True,41.9196,49,17.71,9.629,in_progress,0.00,0
+SIM_TRACE_LOG:0,66,5.1786,2.7576,173.5780,-15.00,1.30,[-15.0 1.3],1.0000,False,True,42.3717,50,17.71,9.695,in_progress,0.00,0
+SIM_TRACE_LOG:0,67,5.0921,2.7862,169.5115,-15.00,1.65,[-15.0 1.653497761487961],1.0000,False,True,42.8610,51,17.71,9.753,in_progress,0.00,0
+SIM_TRACE_LOG:0,68,5.0099,2.8212,165.2374,-15.00,2.50,[-15.0 2.5003746666014193],1.0000,False,True,43.3621,51,17.71,9.825,in_progress,0.00,0
+SIM_TRACE_LOG:0,69,4.9209,2.8694,160.0399,-14.98,2.89,[-14.980055093765259 2.8947160571813586],0.5000,False,True,43.8945,52,17.71,9.891,in_progress,0.00,0
+SIM_TRACE_LOG:0,70,4.8185,2.9380,153.9910,-6.76,2.33,[-6.759683936834335 2.3258914865553377],0.5000,False,True,44.6106,53,17.71,9.963000000000001,in_progress,0.00,0
+SIM_TRACE_LOG:0,71,4.7108,3.0173,148.9060,3.37,2.38,[3.368399664759636 2.3806106289848685],0.5000,False,True,45.4598,54,17.71,10.025,in_progress,0.00,0
+SIM_TRACE_LOG:0,72,4.6044,3.0955,146.4628,0.03,2.38,[0.032097771763801575 2.3826417233794928],0.5000,False,True,46.3767,55,17.71,10.099,in_progress,0.00,0
+SIM_TRACE_LOG:0,73,4.4758,3.1818,146.2819,-15.00,2.77,[-15.0 2.7710140705108643],0.5000,False,True,47.4985,56,17.71,10.158,in_progress,0.00,0
+SIM_TRACE_LOG:0,74,4.3552,3.2707,144.8104,-15.00,3.11,[-15.0 3.105144423246384],0.5000,False,True,48.3811,57,17.71,10.224,in_progress,0.00,0
+SIM_TRACE_LOG:0,75,4.2307,3.3806,141.1245,-15.00,2.58,[-15.0 2.5788759768009184],0.5000,False,True,49.3166,58,17.71,10.291,in_progress,0.00,0
+SIM_TRACE_LOG:0,76,4.1140,3.5023,136.8410,-10.17,3.50,[-10.168907046318054 3.5],0.5000,False,True,50.2596,59,17.71,10.358,in_progress,0.00,0
+SIM_TRACE_LOG:0,77,3.9944,3.6458,132.2064,-10.09,1.55,[-10.09018823504448 1.5507727086544039],0.5000,False,True,51.3147,61,17.71,10.426,in_progress,0.00,0
+SIM_TRACE_LOG:0,78,3.8917,3.7941,126.9884,12.36,1.64,[12.357930801808834 1.6438904404640198],0.5000,False,True,52.3307,62,17.71,10.492,in_progress,0.00,0
+SIM_TRACE_LOG:0,79,3.7970,3.9374,124.0660,30.00,1.30,[30.0 1.3],0.5000,False,True,53.2955,63,17.71,10.556000000000001,in_progress,0.00,0
+SIM_TRACE_LOG:0,80,3.7082,4.0564,125.0925,30.00,1.30,[30.0 1.3],0.5000,False,True,54.1331,64,17.71,10.626,in_progress,0.00,0
+SIM_TRACE_LOG:0,81,3.6248,4.1578,127.0657,30.00,1.86,[30.0 1.855336606502533],0.5000,False,True,54.8771,65,17.71,10.692,in_progress,0.00,0
+SIM_TRACE_LOG:0,82,3.5336,4.2523,130.3748,30.00,2.52,[30.0 2.5173807643353943],0.5000,False,True,55.6164,66,17.71,10.757,in_progress,0.00,0
+SIM_TRACE_LOG:0,83,3.4304,4.3381,135.0240,30.00,2.46,[30.0 2.457281326502562],0.5000,False,True,56.2805,66,17.71,10.825,in_progress,0.00,0
+SIM_TRACE_LOG:0,84,3.3121,4.4163,140.7859,30.00,1.88,[30.0 1.8784097224473955],0.5000,False,True,56.9736,67,17.71,10.894,in_progress,0.00,0
+SIM_TRACE_LOG:0,85,3.1848,4.4865,146.1277,30.00,1.65,[30.0 1.6540171027183534],0.5000,False,True,57.7430,68,17.71,10.959,in_progress,0.00,0
+SIM_TRACE_LOG:0,86,3.0745,4.5391,149.9090,30.00,1.30,[30.0 1.3],0.5000,False,True,58.4225,69,17.71,11.031,in_progress,0.00,0
+SIM_TRACE_LOG:0,87,2.9541,4.5910,153.1279,30.00,1.51,[30.0 1.5065207183361053],0.5000,False,True,59.0337,70,17.71,11.09,in_progress,0.00,0
+SIM_TRACE_LOG:0,88,2.8465,4.6288,156.2222,30.00,3.10,[30.0 3.099538737535477],0.5000,False,True,59.4928,70,17.71,11.163,in_progress,0.00,0
+SIM_TRACE_LOG:0,89,2.7285,4.6592,160.3997,30.00,3.25,[30.0 3.2483207225799564],0.5000,False,True,60.2096,71,17.71,11.224,in_progress,0.00,0
+SIM_TRACE_LOG:0,90,2.6008,4.6743,166.6086,30.00,2.25,[30.0 2.2526233538985254],0.5000,False,True,60.9179,72,17.71,11.294,in_progress,0.00,0
+SIM_TRACE_LOG:0,91,2.4462,4.6682,175.9779,25.13,1.77,[25.128852277994156 1.76722372174263],0.5000,False,True,61.7908,73,17.71,11.358,in_progress,0.00,0
+SIM_TRACE_LOG:0,92,2.3211,4.6502,-175.9263,30.00,1.60,[30.0 1.6031944394111635],0.5000,False,True,62.4636,74,17.71,11.441,in_progress,0.00,0
+SIM_TRACE_LOG:0,93,2.1705,4.6237,-168.9717,-2.23,1.30,[-2.230328768491745 1.3],0.5000,False,True,63.3217,75,17.71,11.494,in_progress,0.00,0
+SIM_TRACE_LOG:0,94,2.0676,4.6030,-166.0903,-0.31,2.41,[-0.3063071519136429 2.410663986764848],0.5000,False,True,63.9104,75,17.71,11.558,in_progress,0.00,0
+SIM_TRACE_LOG:0,95,1.9492,4.5733,-164.5389,28.45,1.51,[28.451592922210693 1.5091594517230988],0.5000,False,True,64.5831,76,17.71,11.626,in_progress,0.00,0
+SIM_TRACE_LOG:0,96,1.8269,4.5363,-163.9391,28.27,1.92,[28.270050287246704 1.919661945104599],1.0000,False,True,65.2770,77,17.71,11.692,in_progress,0.00,0
+SIM_TRACE_LOG:0,97,1.7132,4.4886,-160.8813,25.86,1.56,[25.8615580201149 1.5586468160152436],1.0000,False,True,65.9278,78,17.71,11.759,in_progress,0.00,0
+SIM_TRACE_LOG:0,98,1.5948,4.4238,-156.2984,-15.00,1.30,[-15.0 1.3],1.0000,False,True,66.6104,79,17.71,11.825,in_progress,0.00,0
+SIM_TRACE_LOG:0,99,1.4954,4.3667,-153.5516,-10.88,1.30,[-10.883696973323822 1.3],0.5000,False,True,67.2010,79,17.71,11.895,in_progress,0.00,0
+SIM_TRACE_LOG:0,100,1.3970,4.3203,-154.0682,30.00,1.30,[30.0 1.3],0.5000,False,True,67.9273,80,17.71,11.961,in_progress,0.00,0
+SIM_TRACE_LOG:0,101,1.3008,4.2773,-154.7617,30.00,1.30,[30.0 1.3],0.5000,False,True,68.7215,81,17.71,12.019,in_progress,0.00,0
+SIM_TRACE_LOG:0,102,1.2129,4.2268,-153.0109,30.00,1.30,[30.0 1.3],0.5000,False,True,69.2939,82,17.71,12.091,in_progress,0.00,0
+SIM_TRACE_LOG:0,103,1.1373,4.1739,-150.2415,30.00,1.63,[30.0 1.6329720795154572],0.5000,False,True,69.9657,83,17.71,12.157,in_progress,0.00,0
+SIM_TRACE_LOG:0,104,1.0606,4.1055,-145.5920,30.00,1.55,[30.0 1.551686555147171],0.5000,False,True,70.6694,83,17.71,12.226,in_progress,0.00,0
+SIM_TRACE_LOG:0,105,0.9894,4.0190,-138.9847,30.00,1.30,[30.0 1.3],0.5000,False,True,71.4262,84,17.71,12.293,in_progress,0.00,0
+SIM_TRACE_LOG:0,106,0.9329,3.9398,-134.1215,30.00,2.97,[30.0 2.969752997159958],0.5000,False,True,71.9756,85,17.71,12.363,in_progress,0.00,0
+SIM_TRACE_LOG:0,107,0.8737,3.8408,-128.4362,30.00,3.16,[30.0 3.157061105966568],0.5000,False,True,72.7703,86,17.71,12.422,in_progress,0.00,0
+SIM_TRACE_LOG:0,108,0.8338,3.7416,-121.7746,30.00,1.30,[30.0 1.3],0.5000,False,True,73.5083,87,17.71,12.494,in_progress,0.00,0
+SIM_TRACE_LOG:0,109,0.8029,3.6332,-113.9110,30.00,1.76,[30.0 1.7585215270519257],0.5000,False,True,74.2381,88,17.71,12.558,in_progress,0.00,0
+SIM_TRACE_LOG:0,110,0.7835,3.5212,-106.5916,30.00,2.21,[30.0 2.205582945048809],1.0000,False,True,74.9166,88,17.71,12.621,in_progress,0.00,0
+SIM_TRACE_LOG:0,111,0.7804,3.4007,-99.0754,19.79,2.67,[19.79492425918579 2.6724779397249225],1.0000,False,True,75.6283,89,17.71,12.69,in_progress,0.00,0
+SIM_TRACE_LOG:0,112,0.7901,3.2847,-92.6162,-13.22,1.30,[-13.218950182199478 1.3],1.0000,False,True,76.3129,90,17.71,12.758,in_progress,0.00,0
+SIM_TRACE_LOG:0,113,0.8046,3.1544,-86.9415,18.27,1.30,[18.272171840071678 1.3],1.0000,False,True,77.0470,91,17.71,12.822,in_progress,0.00,0
+SIM_TRACE_LOG:0,114,0.8140,3.0440,-85.5198,30.00,1.30,[30.0 1.3],1.0000,False,True,77.6694,92,17.71,12.891,in_progress,0.00,0
+SIM_TRACE_LOG:0,115,0.8313,2.9507,-83.3724,27.28,1.30,[27.279961109161377 1.3],1.0000,False,True,78.2014,92,17.71,12.961,in_progress,0.00,0
+SIM_TRACE_LOG:0,116,0.8581,2.8487,-80.2398,23.77,2.27,[23.768785893917084 2.2719091750681404],1.0000,False,True,78.7969,93,17.71,13.021,in_progress,0.00,0
+SIM_TRACE_LOG:0,117,0.8935,2.7546,-76.0961,1.46,1.84,[1.4578434079885483 1.8414688646793367],1.0000,False,True,79.3571,94,17.71,13.096,in_progress,0.00,0
+SIM_TRACE_LOG:0,118,0.9409,2.6506,-71.6770,-15.00,3.22,[-15.0 3.2166837215423585],1.0000,False,True,79.9848,94,17.71,13.157,in_progress,0.00,0
+SIM_TRACE_LOG:0,119,0.9824,2.5463,-70.4505,-15.00,1.30,[-15.0 1.3],1.0000,False,True,80.6091,95,17.71,13.225,in_progress,0.00,0
+SIM_TRACE_LOG:0,120,1.0105,2.4410,-71.7417,-15.00,1.39,[-15.0 1.3907622396945953],1.0000,False,True,81.2234,96,17.71,13.296,in_progress,0.00,0
+SIM_TRACE_LOG:0,121,1.0307,2.3282,-75.0572,-15.00,1.30,[-15.0 1.3],1.0000,False,True,81.8703,97,17.71,13.364,in_progress,0.00,0
+SIM_TRACE_LOG:0,122,1.0432,2.2256,-78.1203,-15.00,1.34,[-15.0 1.3365500569343567],1.0000,False,True,82.4518,97,17.71,13.425,in_progress,0.00,0
+SIM_TRACE_LOG:0,123,1.0477,2.1346,-81.2045,14.37,1.50,[14.366616010665894 1.5045043945312502],1.0000,False,True,82.9604,98,17.71,13.49,in_progress,0.00,0
+SIM_TRACE_LOG:0,124,1.0593,2.0372,-81.8311,30.00,1.65,[30.0 1.6496058821678163],1.0000,False,True,83.5124,99,17.71,13.572,in_progress,0.00,0
+SIM_TRACE_LOG:0,125,1.0911,1.9289,-78.4721,25.46,1.60,[25.46151727437973 1.6005244314670564],1.0000,False,True,84.1475,99,17.71,13.624,in_progress,0.00,0
+SIM_TRACE_LOG:0,126,1.1309,1.8449,-73.6199,8.73,1.30,[8.732865052297711 1.3],1.0000,False,True,84.6574,100,17.71,13.696,in_progress,0.00,0
+SIM_TRACE_LOG:0,127,1.1789,1.7583,-68.9821,-8.91,1.30,[-8.908528983592987 1.3],0.5000,False,True,85.1917,101,17.71,13.757,in_progress,0.00,0
+SIM_TRACE_LOG:0,128,1.2226,1.6710,-66.9945,17.44,1.30,[17.44428388774395 1.3],0.5000,False,True,85.7261,101,17.71,13.823,in_progress,0.00,0
+SIM_TRACE_LOG:0,129,1.2633,1.5910,-65.6771,-4.43,1.30,[-4.430728554725647 1.3],0.5000,False,True,86.2152,102,17.71,13.891,in_progress,0.00,0
+SIM_TRACE_LOG:0,130,1.3062,1.5088,-64.6606,6.19,1.67,[6.188866915181279 1.6730484247207642],0.5000,False,True,86.7259,102,17.71,13.958,in_progress,0.00,0
+SIM_TRACE_LOG:0,131,1.3476,1.4239,-64.4280,18.85,1.30,[18.854037523269653 1.3],0.1000,False,True,87.2439,103,17.71,14.023,in_progress,0.00,0
+SIM_TRACE_LOG:0,132,1.3991,1.3394,-62.3192,30.00,1.30,[30.0 1.3],0.1000,False,True,87.8604,104,17.71,14.089,in_progress,0.00,0
+SIM_TRACE_LOG:0,133,1.4542,1.2671,-59.0011,30.00,1.30,[30.0 1.3],0.1000,False,True,88.4675,104,17.71,14.161,in_progress,0.00,0
+SIM_TRACE_LOG:0,134,1.5208,1.1952,-54.7087,30.00,1.66,[30.0 1.6619287788867951],0.1000,False,True,89.3811,105,17.71,14.225,in_progress,0.00,0
+SIM_TRACE_LOG:0,135,1.5879,1.1373,-49.9819,30.00,1.30,[30.0 1.3],0.1000,False,False,90.0636,106,17.71,14.296,in_progress,0.00,0
+SIM_TRACE_LOG:0,136,1.6761,1.0749,-44.1881,30.00,1.30,[30.0 1.3],0.1000,False,False,91.2827,108,17.71,14.361,in_progress,0.00,0
+SIM_TRACE_LOG:0,137,1.7558,1.0284,-39.3790,16.61,1.46,[16.606467738747597 1.4550735473632814],0.1000,False,False,92.0725,109,17.71,14.423,in_progress,0.00,0
+SIM_TRACE_LOG:0,138,1.8464,0.9873,-33.8533,17.65,1.30,[17.650231271982193 1.3],0.1000,False,False,92.8118,110,17.71,14.496,in_progress,0.00,0
+SIM_TRACE_LOG:0,139,1.9434,0.9543,-28.0668,24.87,1.30,[24.872931987047195 1.3],0.1000,False,False,93.4806,110,17.71,14.561,in_progress,0.00,0
+SIM_TRACE_LOG:0,140,2.0378,0.9322,-22.6504,22.85,1.53,[22.84609392285347 1.5279017627239229],0.1000,False,True,94.0260,111,17.71,14.625,in_progress,0.00,0
+SIM_TRACE_LOG:0,141,2.1290,0.9187,-17.6835,-1.63,1.91,[-1.6266748309135437 1.9142597734928133],0.1000,False,True,94.6314,112,17.71,14.693,in_progress,0.00,0
+SIM_TRACE_LOG:0,142,2.2388,0.9034,-13.7624,-10.12,1.43,[-10.123668909072876 1.4327948510646822],0.1000,False,True,95.3379,112,17.71,14.763,in_progress,0.00,0
+SIM_TRACE_LOG:0,143,2.3408,0.8764,-14.1398,-5.99,1.43,[-5.988190770149231 1.4311725080013276],0.1000,False,True,95.9800,113,17.71,14.826,in_progress,0.00,0
+SIM_TRACE_LOG:0,144,2.4322,0.8442,-16.0955,19.05,1.49,[19.045211970806122 1.4932128369808197],0.5000,False,True,96.4895,114,17.71,14.901,in_progress,0.00,0
+SIM_TRACE_LOG:0,145,2.5384,0.8121,-16.3216,-9.30,2.51,[-9.304217845201492 2.5100124917924402],0.5000,False,True,97.0797,115,17.71,14.958,in_progress,0.00,0
+SIM_TRACE_LOG:0,146,2.6271,0.7894,-15.7665,3.94,2.63,[3.935724087059498 2.634162411093712],0.5000,False,True,97.5665,115,17.71,15.026,in_progress,0.00,0
+SIM_TRACE_LOG:0,147,2.7397,0.7485,-17.6254,3.20,1.79,[3.195407912135124 1.7891222715377808],1.0000,False,True,98.1986,116,17.71,15.097,in_progress,0.00,0
+SIM_TRACE_LOG:0,148,2.8674,0.6970,-19.7379,30.00,1.99,[30.0 1.9938342452049258],1.0000,False,True,98.9138,117,17.71,15.158,in_progress,0.00,0
+SIM_TRACE_LOG:0,149,2.9769,0.6544,-20.4092,30.00,1.30,[30.0 1.3],1.0000,False,True,99.5328,117,17.71,15.227,in_progress,0.00,0
+SIM_TRACE_LOG:0,150,3.0969,0.6209,-18.2526,26.63,1.30,[26.627637147903442 1.3],1.0000,True,True,100.0000,0,17.71,15.296,lap_complete,0.00,0
+[s3] Successfully uploaded metrics to                  s3 bucket aws-deepracer-data-us-east-1-1 with s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/metrics/evaluation/evaluation-20251030200413-vYAA9w3xRAqa0DoseZSLFw.json.
+#033[95mTesting#033[0m - #033[94mName: #033[0mmain_level/agent #033[94mWorker: #033[0m0 #033[94mEpisode: #033[0m0 #033[94mTotal reward: #033[0m93.1 #033[94mSteps: #033[0m0 #033[94mTraining iteration: #033[0m0 
+#033[30;46magent: Finished evaluation phase. Success rate = 0.0, Avg Total Reward = 93.1#033[0m
+#033[30;46magent: Starting evaluation phase#033[0m
+Reset agent
+Reset agent finished
+SIM_TRACE_LOG:1,1,3.1999,0.6831,0.1841,30.00,1.44,[30.0 1.4415464818477632],0.0000,False,True,0.7916,1,17.71,15.424,prepare,0.00,0
+SIM_TRACE_LOG:1,2,3.1997,0.6831,0.1833,-8.26,3.50,[-8.256019949913025 3.5],1.0000,False,True,0.7906,1,17.71,15.49,in_progress,0.00,0
+SIM_TRACE_LOG:1,3,3.2070,0.6869,1.1961,-15.00,2.64,[-15.0 2.637597481906414],1.0000,False,True,0.8315,1,17.71,15.563,in_progress,0.00,0
+SIM_TRACE_LOG:1,4,3.2300,0.6869,1.1454,-15.00,3.50,[-15.0 3.5],1.0000,False,True,0.9613,1,17.71,15.627,in_progress,0.00,0
+SIM_TRACE_LOG:1,5,3.2629,0.6870,0.9976,-7.16,2.74,[-7.156487256288528 2.735356977581978],1.0000,False,True,1.1473,1,17.71,15.691,in_progress,0.00,0
+SIM_TRACE_LOG:1,6,3.3137,0.6871,0.8049,-11.40,3.42,[-11.39516606926918 3.417377144098282],1.0000,False,True,1.4339,2,17.71,15.753,in_progress,0.00,0
+SIM_TRACE_LOG:1,7,3.3778,0.6850,0.1275,10.43,2.99,[10.431215576827526 2.9850914955139163],1.0000,False,True,1.7958,2,17.71,15.821,in_progress,0.00,0
+SIM_TRACE_LOG:1,8,3.4557,0.6883,0.9576,-15.00,3.50,[-15.0 3.5],1.0000,False,True,2.2361,3,17.71,15.894,in_progress,0.00,0
+SIM_TRACE_LOG:1,9,3.5535,0.6956,2.0150,-15.00,2.23,[-15.0 2.2279231905937196],1.0000,False,True,2.7880,3,17.71,15.953,in_progress,0.00,0
+SIM_TRACE_LOG:1,10,3.6556,0.6845,-1.1527,-15.00,3.50,[-15.0 3.5],1.0000,False,True,3.3647,4,17.71,16.023,in_progress,0.00,0
+SIM_TRACE_LOG:1,11,3.7685,0.6639,-5.2298,-15.00,1.68,[-15.0 1.6829781949520113],1.0000,False,True,4.0025,5,17.71,16.09,in_progress,0.00,0
+SIM_TRACE_LOG:1,12,3.8928,0.6289,-10.2319,-0.13,2.14,[-0.12994453310966492 2.1388609394431115],1.0000,False,True,4.7043,6,17.71,16.156,in_progress,0.00,0
+SIM_TRACE_LOG:1,13,4.0087,0.5968,-12.4753,30.00,1.30,[30.0 1.3],0.5000,False,True,5.3582,6,17.71,16.225,in_progress,0.00,0
+SIM_TRACE_LOG:1,14,4.1262,0.5686,-13.1313,23.91,1.82,[23.91153573989868 1.8182677328586578],0.5000,False,True,6.0222,7,17.71,16.288,in_progress,0.00,0
+SIM_TRACE_LOG:1,15,4.2442,0.5504,-11.1931,18.37,2.28,[18.36625635623932 2.2809284344315532],0.5000,False,True,6.6880,8,17.71,16.363,in_progress,0.00,0
+SIM_TRACE_LOG:1,16,4.3677,0.5467,-6.9493,29.99,1.30,[29.989021718502045 1.3],0.5000,False,True,7.3854,9,17.71,16.423000000000002,in_progress,0.00,0
+SIM_TRACE_LOG:1,17,4.4848,0.5546,-2.2014,30.00,1.48,[30.0 1.4762826800346376],0.5000,False,True,8.0469,10,17.71,16.49,in_progress,0.00,0
+SIM_TRACE_LOG:1,18,4.5949,0.5708,2.1079,25.31,1.30,[25.30563399195671 1.3],0.5000,False,True,8.6683,10,17.71,16.558,in_progress,0.00,0
+SIM_TRACE_LOG:1,19,4.6999,0.5948,6.3791,-15.00,3.50,[-15.0 3.5],0.5000,False,True,9.2614,11,17.71,16.625,in_progress,0.00,0
+SIM_TRACE_LOG:1,20,4.8017,0.6142,7.7790,-15.00,1.89,[-15.0 1.8869754433631898],1.0000,False,True,9.8365,12,17.71,16.69,in_progress,0.00,0
+SIM_TRACE_LOG:1,21,4.9167,0.6149,4.6590,-2.10,3.09,[-2.099666967988014 3.0850512087345123],1.0000,False,True,10.4859,12,17.71,16.761,in_progress,0.00,0
+SIM_TRACE_LOG:1,22,5.0410,0.6100,1.6654,-7.56,1.79,[-7.5551024079322815 1.7903697133064271],1.0000,False,True,11.1878,13,17.71,16.825,in_progress,0.00,0
+SIM_TRACE_LOG:1,23,5.1747,0.6000,-1.2518,28.44,1.30,[28.44244122505188 1.3],0.5000,False,True,11.9427,14,17.71,16.893,in_progress,0.00,0
+SIM_TRACE_LOG:1,24,5.2929,0.5901,-2.8712,8.75,1.74,[8.748848419636488 1.7425216734409332],0.5000,False,True,12.6100,15,17.71,16.959,in_progress,0.00,0
+SIM_TRACE_LOG:1,25,5.4010,0.5889,-1.9663,9.67,1.82,[9.674389734864235 1.8166718780994415],0.5000,False,True,13.2205,16,17.71,17.025,in_progress,0.00,0
+SIM_TRACE_LOG:1,26,5.5212,0.5981,0.8248,19.24,1.30,[19.241768270730972 1.3],0.5000,False,True,13.8985,16,17.71,17.092,in_progress,0.00,0
+SIM_TRACE_LOG:1,27,5.6320,0.6202,5.1827,9.89,1.55,[9.891111217439175 1.546380764245987],1.0000,False,True,14.5250,17,17.71,17.161,in_progress,0.00,0
+SIM_TRACE_LOG:1,28,5.7332,0.6499,9.5158,15.29,1.30,[15.288574397563934 1.3],1.0000,False,True,15.0967,18,17.71,17.221,in_progress,0.00,0
+SIM_TRACE_LOG:1,29,5.8301,0.6905,14.6768,-3.79,1.30,[-3.7859590351581573 1.3],1.0000,False,True,15.6434,18,17.71,17.291,in_progress,0.00,0
+SIM_TRACE_LOG:1,30,5.9162,0.7318,18.5539,-15.00,1.30,[-15.0 1.3],1.0000,False,True,16.1278,19,17.71,17.356,in_progress,0.00,0
+SIM_TRACE_LOG:1,31,6.0117,0.7644,18.6642,-15.00,1.30,[-15.0 1.3],0.5000,False,True,16.6651,20,17.71,17.427,in_progress,0.00,0
+SIM_TRACE_LOG:1,32,6.1005,0.7854,16.7988,30.00,1.30,[30.0 1.3],0.5000,False,True,17.1853,20,17.71,17.493,in_progress,0.00,0
+SIM_TRACE_LOG:1,33,6.1863,0.8087,16.2977,30.00,1.30,[30.0 1.3],0.5000,False,True,17.6734,21,17.71,17.554,in_progress,0.00,0
+SIM_TRACE_LOG:1,34,6.2703,0.8457,18.8904,-0.05,1.30,[-0.048540160059928894 1.3],0.5000,False,True,18.2027,22,17.71,17.625,in_progress,0.00,0
+SIM_TRACE_LOG:1,35,6.3560,0.8904,21.9718,8.66,1.38,[8.663287376984954 1.3796252846717836],0.5000,False,True,18.7634,22,17.71,17.695,in_progress,0.00,0
+SIM_TRACE_LOG:1,36,6.4426,0.9350,23.9520,9.48,1.30,[9.483328275382519 1.3],0.1000,False,True,19.2816,23,17.71,17.76,in_progress,0.00,0
+SIM_TRACE_LOG:1,37,6.5228,0.9863,27.0257,14.98,1.30,[14.983331635594368 1.3],0.1000,False,True,20.0596,24,17.71,17.822,in_progress,0.00,0
+SIM_TRACE_LOG:1,38,6.5942,1.0404,30.4661,30.00,1.30,[30.0 1.3],0.1000,False,True,20.7993,25,17.71,17.893,in_progress,0.00,0
+SIM_TRACE_LOG:1,39,6.6659,1.1072,34.9991,30.00,1.30,[30.0 1.3],0.1000,False,True,21.4880,25,17.71,17.96,in_progress,0.00,0
+SIM_TRACE_LOG:1,40,6.7284,1.1808,40.2188,30.00,1.30,[30.0 1.3],0.1000,False,True,22.2310,26,17.71,18.027,in_progress,0.00,0
+SIM_TRACE_LOG:1,41,6.7820,1.2580,45.4522,30.00,1.30,[30.0 1.3],0.1000,False,False,23.1169,27,17.71,18.091,in_progress,0.00,0
+SIM_TRACE_LOG:1,42,6.8241,1.3329,50.3922,13.46,1.30,[13.463398218154907 1.3],0.1000,False,False,23.8495,28,17.71,18.158,in_progress,0.00,0
+SIM_TRACE_LOG:1,43,6.8662,1.4153,54.7325,13.34,1.53,[13.343190997838974 1.5259750664234162],0.1000,False,False,24.3713,29,17.71,18.223,in_progress,0.00,0
+SIM_TRACE_LOG:1,44,6.9066,1.5039,58.6309,30.00,1.37,[30.0 1.3692566871643066],0.1000,False,False,25.1384,30,17.71,18.289,in_progress,0.00,0
+SIM_TRACE_LOG:1,45,6.9424,1.5986,62.5860,30.00,1.30,[30.0 1.3],0.1000,False,False,25.9291,31,17.71,18.358,in_progress,0.00,0
+SIM_TRACE_LOG:1,46,6.9694,1.6948,66.9050,30.00,1.30,[30.0 1.3],0.1000,False,False,26.8550,32,17.71,18.426,in_progress,0.00,0
+SIM_TRACE_LOG:1,47,6.9873,1.7824,70.7883,30.00,2.02,[30.0 2.0176979124546053],0.1000,False,False,27.6808,33,17.71,18.493,in_progress,0.00,0
+SIM_TRACE_LOG:1,48,6.9950,1.8877,76.6740,30.00,2.08,[30.0 2.078653007745743],0.1000,False,False,28.4029,34,17.71,18.558,in_progress,0.00,0
+SIM_TRACE_LOG:1,49,6.9869,1.9991,83.8749,30.00,2.39,[30.0 2.3897093983367084],0.1000,False,False,29.1909,34,17.71,18.622,in_progress,0.00,0
+SIM_TRACE_LOG:1,50,6.9623,2.1151,91.9045,30.00,1.64,[30.0 1.6387486279010774],0.1000,False,True,30.0468,35,17.71,18.691,in_progress,0.00,0
+SIM_TRACE_LOG:1,51,6.9230,2.2380,100.0699,30.00,2.02,[30.0 2.0175815343856813],0.5000,False,True,30.9362,37,17.71,18.765,in_progress,0.00,0
+SIM_TRACE_LOG:1,52,6.8740,2.3554,106.1217,30.00,1.88,[30.0 1.883484035730362],0.5000,False,True,31.7403,37,17.71,18.824,in_progress,0.00,0
+SIM_TRACE_LOG:1,53,6.8132,2.4593,112.3125,30.00,1.30,[30.0 1.3],0.5000,False,True,32.4784,38,17.71,18.89,in_progress,0.00,0
+SIM_TRACE_LOG:1,54,6.7458,2.5514,118.1371,30.00,3.14,[30.0 3.1407459497451784],1.0000,False,True,33.1597,39,17.71,18.955,in_progress,0.00,0
+SIM_TRACE_LOG:1,55,6.6727,2.6441,122.5336,9.55,1.76,[9.552496410906315 1.76494717001915],1.0000,False,True,33.7751,40,17.71,19.025,in_progress,0.00,0
+SIM_TRACE_LOG:1,56,6.5897,2.7298,127.5904,30.00,1.36,[30.0 1.3559368073940277],1.0000,False,True,34.4067,41,17.71,19.094,in_progress,0.00,0
+SIM_TRACE_LOG:1,57,6.4978,2.8107,132.5986,30.00,2.16,[30.0 2.157601808011532],1.0000,False,True,34.9921,41,17.71,19.158,in_progress,0.00,0
+SIM_TRACE_LOG:1,58,6.4058,2.8745,137.7881,30.00,1.30,[30.0 1.3],0.5000,False,True,35.5735,42,17.71,19.222,in_progress,0.00,0
+SIM_TRACE_LOG:1,59,6.3121,2.9240,143.4134,30.00,1.87,[30.0 1.8739146769046784],0.5000,False,True,36.0320,43,17.71,19.295,in_progress,0.00,0
+SIM_TRACE_LOG:1,60,6.1980,2.9660,150.6469,30.00,1.30,[30.0 1.3],0.1000,False,True,36.6399,43,17.71,19.358,in_progress,0.00,0
+SIM_TRACE_LOG:1,61,6.1001,2.9892,156.5748,30.00,1.30,[30.0 1.3],0.1000,False,True,37.1952,44,17.71,19.43,in_progress,0.00,0
+SIM_TRACE_LOG:1,62,6.0004,3.0052,161.8521,-2.67,1.30,[-2.667052745819092 1.3],0.1000,False,True,37.7203,45,17.71,19.492,in_progress,0.00,0
+SIM_TRACE_LOG:1,63,5.9109,3.0182,165.2540,5.82,2.23,[5.818961709737778 2.2282767176628115],0.1000,False,True,38.2244,45,17.71,19.56,in_progress,0.00,0
+SIM_TRACE_LOG:1,64,5.8022,3.0394,166.7909,9.12,1.75,[9.119732212275267 1.7482891082763672],0.1000,False,True,38.8374,46,17.71,19.618,in_progress,0.00,0
+SIM_TRACE_LOG:1,65,5.6995,3.0479,170.0093,8.86,1.93,[8.863420905545354 1.934187436103821],0.1000,False,True,39.4182,47,17.71,19.692,in_progress,0.00,0
+SIM_TRACE_LOG:1,66,5.5841,3.0482,174.1297,-1.68,1.30,[-1.682608276605606 1.3],0.1000,False,True,40.0762,47,17.71,19.755,in_progress,0.00,0
+SIM_TRACE_LOG:1,67,5.4664,3.0507,176.2160,-5.01,1.30,[-5.0068482756614685 1.3],0.1000,False,True,40.7405,48,17.71,19.825,in_progress,0.00,0
+SIM_TRACE_LOG:1,68,5.3673,3.0604,175.5483,-12.38,1.30,[-12.376460283994675 1.3],0.1000,False,True,41.2997,49,17.71,19.892,in_progress,0.00,0
+SIM_TRACE_LOG:1,69,5.2664,3.0765,173.7626,-10.58,1.30,[-10.579067766666412 1.3],0.1000,False,True,41.8400,49,17.71,19.957,in_progress,0.00,0
+SIM_TRACE_LOG:1,70,5.1758,3.0967,171.5842,-6.94,1.30,[-6.938382089138031 1.3],0.1000,False,False,42.3975,50,17.71,20.026,in_progress,0.00,0
+SIM_TRACE_LOG:1,71,5.0890,3.1143,170.5902,-15.00,1.30,[-15.0 1.3],0.1000,False,False,42.8881,51,17.71,20.102,in_progress,0.00,0
+SIM_TRACE_LOG:1,72,4.9852,3.1395,168.8384,-15.00,1.30,[-15.0 1.3],0.1000,False,False,43.7225,52,17.71,20.156,in_progress,0.00,0
+SIM_TRACE_LOG:1,73,4.9138,3.1634,166.6850,-6.85,1.30,[-6.847841441631317 1.3],0.1000,False,False,44.3955,52,17.71,20.226,in_progress,0.00,0
+SIM_TRACE_LOG:1,74,4.8313,3.1928,164.6353,3.22,1.60,[3.224007301032543 1.602407330274582],0.0010,False,False,45.2122,53,17.71,20.293,in_progress,0.00,0
+SIM_TRACE_LOG:1,75,4.7429,3.2174,164.5845,2.36,2.18,[2.355840280652046 2.1795541375875476],0.1000,False,False,46.0881,54,17.71,20.36,in_progress,0.00,0
+SIM_TRACE_LOG:1,76,4.6411,3.2392,165.8547,-14.01,2.25,[-14.00642529129982 2.2510146647691727],0.1000,False,False,46.9425,55,17.71,20.427,in_progress,0.00,0
+SIM_TRACE_LOG:1,77,4.5266,3.2679,165.8023,-15.00,2.48,[-15.0 2.482465745508671],0.1000,False,False,47.6568,56,17.71,20.492,in_progress,0.00,0
+SIM_TRACE_LOG:1,78,4.4089,3.3136,162.5721,-15.00,2.64,[-15.0 2.6385370790958405],0.1000,False,False,48.3750,57,17.71,20.557,in_progress,0.00,0
+SIM_TRACE_LOG:1,79,4.2847,3.3800,157.2034,-15.00,1.59,[-15.0 1.585475665330887],0.5000,False,True,49.1106,58,17.71,20.625,in_progress,0.00,0
+SIM_TRACE_LOG:1,80,4.1734,3.4583,150.8498,-0.66,2.18,[-0.6551619619131088 2.1806518122553826],0.5000,False,True,49.8610,59,17.71,20.691,in_progress,0.00,0
+SIM_TRACE_LOG:1,81,4.0634,3.5451,146.2325,-15.00,1.62,[-15.0 1.6217102229595186],0.5000,False,True,50.6274,60,17.71,20.76,in_progress,0.00,0
+SIM_TRACE_LOG:1,82,3.9636,3.6354,142.2829,-9.30,1.66,[-9.297136813402176 1.6625345349311829],1.0000,False,True,51.3794,61,17.71,20.823,in_progress,0.00,0
+SIM_TRACE_LOG:1,83,3.8807,3.7225,138.5270,8.86,2.36,[8.857343355193734 2.3572480902075768],1.0000,False,True,52.0566,61,17.71,20.89,in_progress,0.00,0
+SIM_TRACE_LOG:1,84,3.7968,3.8089,136.7064,9.57,1.59,[9.568721428513527 1.5901730120182038],1.0000,False,True,52.7340,62,17.71,20.959,in_progress,0.00,0
+SIM_TRACE_LOG:1,85,3.6930,3.8923,138.9123,24.99,1.30,[24.985181093215942 1.3],1.0000,False,True,53.4690,63,17.71,21.021,in_progress,0.00,0
+SIM_TRACE_LOG:1,86,3.5948,3.9551,142.5874,30.00,1.30,[30.0 1.3],1.0000,False,True,54.0945,64,17.71,21.089,in_progress,0.00,0
+SIM_TRACE_LOG:1,87,3.4962,4.0038,147.0111,-3.11,1.30,[-3.1144190579652786 1.3],1.0000,False,True,54.6582,65,17.71,21.16,in_progress,0.00,0
+SIM_TRACE_LOG:1,88,3.4098,4.0427,150.1203,10.44,1.30,[10.443422645330429 1.3],0.5000,False,True,55.1354,65,17.71,21.223,in_progress,0.00,0
+SIM_TRACE_LOG:1,89,3.3254,4.0845,151.3844,-15.00,1.30,[-15.0 1.3],0.5000,False,True,55.6184,66,17.71,21.291,in_progress,0.00,0
+SIM_TRACE_LOG:1,90,3.2441,4.1312,150.9237,-10.44,1.30,[-10.438518673181534 1.3],0.5000,False,True,56.2482,66,17.71,21.358,in_progress,0.00,0
+SIM_TRACE_LOG:1,91,3.1711,4.1829,148.8235,30.00,1.30,[30.0 1.3],0.5000,False,True,56.9516,67,17.71,21.424,in_progress,0.00,0
+SIM_TRACE_LOG:1,92,3.0966,4.2391,146.7768,16.29,1.30,[16.285881400108337 1.3],0.5000,False,True,57.4765,68,17.71,21.489,in_progress,0.00,0
+SIM_TRACE_LOG:1,93,3.0135,4.2860,148.1358,17.06,2.18,[17.0638145506382 2.1846869677305225],0.5000,False,True,58.1182,69,17.71,21.559,in_progress,0.00,0
+SIM_TRACE_LOG:1,94,2.9223,4.3246,151.4476,25.29,2.07,[25.29146522283554 2.071040537953377],0.5000,False,True,58.9178,69,17.71,21.628,in_progress,0.00,0
+SIM_TRACE_LOG:1,95,2.8174,4.3509,157.1383,10.31,2.84,[10.309028550982475 2.8420454412698746],0.5000,False,True,59.7318,71,17.71,21.693,in_progress,0.00,0
+SIM_TRACE_LOG:1,96,2.6941,4.3671,164.3264,8.72,1.77,[8.719142703339458 1.765656977891922],0.5000,False,True,60.3775,72,17.71,21.761,in_progress,0.00,0
+SIM_TRACE_LOG:1,97,2.5679,4.3733,170.3895,30.00,1.30,[30.0 1.3],0.5000,False,True,61.1005,72,17.71,21.826,in_progress,0.00,0
+SIM_TRACE_LOG:1,98,2.4498,4.3728,174.5784,7.94,1.30,[7.9419919196516275 1.3],0.5000,False,True,61.7673,73,17.71,21.889,in_progress,0.00,0
+SIM_TRACE_LOG:1,99,2.3370,4.3630,179.0109,6.95,1.30,[6.954856105148792 1.3],0.5000,False,True,62.4333,74,17.71,21.959,in_progress,0.00,0
+SIM_TRACE_LOG:1,100,2.2384,4.3474,-177.2563,-15.00,1.30,[-15.0 1.3],0.5000,False,True,62.9906,74,17.71,22.025,in_progress,0.00,0
+SIM_TRACE_LOG:1,101,2.1457,4.3326,-175.1438,-15.00,1.30,[-15.0 1.3],0.5000,False,True,63.5107,75,17.71,22.089,in_progress,0.00,0
+SIM_TRACE_LOG:1,102,2.0475,4.3291,-176.1887,1.64,1.30,[1.6427019238471985 1.3],0.5000,False,True,64.0657,76,17.71,22.158,in_progress,0.00,0
+SIM_TRACE_LOG:1,103,1.9591,4.3255,-176.6533,30.00,1.30,[30.0 1.3],0.5000,False,True,64.5652,76,17.71,22.225,in_progress,0.00,0
+SIM_TRACE_LOG:1,104,1.8580,4.3047,-173.5157,2.52,1.30,[2.518511898815632 1.3],0.5000,False,True,65.1392,77,17.71,22.293,in_progress,0.00,0
+SIM_TRACE_LOG:1,105,1.7676,4.2772,-169.8556,8.24,1.30,[8.24059059843421 1.3],0.1000,False,True,65.6602,78,17.71,22.361,in_progress,0.00,0
+SIM_TRACE_LOG:1,106,1.6855,4.2464,-166.4281,5.32,1.30,[5.315587185323238 1.3],0.1000,False,True,66.1398,78,17.71,22.426,in_progress,0.00,0
+SIM_TRACE_LOG:1,107,1.6006,4.2131,-163.7681,16.10,1.45,[16.102195009589195 1.454821449518204],0.1000,False,True,66.6267,79,17.71,22.492,in_progress,0.00,0
+SIM_TRACE_LOG:1,108,1.5157,4.1725,-160.4433,30.00,1.35,[30.0 1.3451636731624603],0.1000,False,True,67.1635,79,17.71,22.557,in_progress,0.00,0
+SIM_TRACE_LOG:1,109,1.4327,4.1215,-156.1198,30.00,1.30,[30.0 1.3],0.1000,False,False,68.0312,80,17.71,22.621,in_progress,0.00,0
+SIM_TRACE_LOG:1,110,1.3547,4.0621,-151.2879,30.00,1.30,[30.0 1.3],0.1000,False,False,69.0482,82,17.71,22.691,in_progress,0.00,0
+SIM_TRACE_LOG:1,111,1.2836,4.0004,-146.9698,30.00,1.30,[30.0 1.3],0.1000,False,False,69.9447,83,17.71,22.76,in_progress,0.00,0
+SIM_TRACE_LOG:1,112,1.2194,3.9319,-142.1884,6.85,1.66,[6.85492898337543 1.66022487282753],0.1000,False,False,70.7879,84,17.71,22.825,in_progress,0.00,0
+SIM_TRACE_LOG:1,113,1.1531,3.8588,-138.5123,30.00,1.30,[30.0 1.3],0.1000,False,False,71.6627,85,17.71,22.895,in_progress,0.00,0
+SIM_TRACE_LOG:1,114,1.0906,3.7763,-134.2123,30.00,1.30,[30.0 1.3],0.1000,False,False,72.6189,86,17.71,22.959,in_progress,0.00,0
+SIM_TRACE_LOG:1,115,1.0412,3.6973,-129.9775,30.00,1.64,[30.0 1.6360403954982758],0.1000,False,False,73.5043,87,17.71,23.029,in_progress,0.00,0
+SIM_TRACE_LOG:1,116,0.9985,3.6054,-124.2669,30.00,1.62,[30.0 1.6213919043540956],0.1000,False,False,74.3444,88,17.71,23.092,in_progress,0.00,0
+SIM_TRACE_LOG:1,117,0.9665,3.4966,-116.8694,30.00,1.65,[30.0 1.65427628159523],0.1000,False,False,75.1086,89,17.71,23.159,in_progress,0.00,0
+SIM_TRACE_LOG:1,118,0.9511,3.3977,-110.1202,17.19,2.58,[17.191651985049248 2.583379644155502],0.1000,False,False,75.7845,89,17.71,23.227,in_progress,0.00,0
+SIM_TRACE_LOG:1,119,0.9480,3.2758,-101.7157,0.84,1.85,[0.844065472483635 1.8468524158000947],0.1000,False,True,76.5724,90,17.71,23.295,in_progress,0.00,0
+SIM_TRACE_LOG:1,120,0.9495,3.1486,-95.1749,-2.84,2.27,[-2.8440510481595993 2.271765857934952],0.5000,False,True,77.3079,91,17.71,23.356,in_progress,0.00,0
+SIM_TRACE_LOG:1,121,0.9424,3.0253,-94.2947,-15.00,2.56,[-15.0 2.5569962441921232],0.5000,False,True,77.9674,92,17.71,23.427,in_progress,0.00,0
+SIM_TRACE_LOG:1,122,0.9224,2.8837,-96.2439,1.38,1.30,[1.3753433525562286 1.3],0.5000,False,True,78.6933,93,17.71,23.496,in_progress,0.00,0
+SIM_TRACE_LOG:1,123,0.8977,2.7403,-98.1338,3.29,1.30,[3.2937299832701683 1.3],1.0000,False,True,79.4410,94,17.71,23.558,in_progress,0.00,0
+SIM_TRACE_LOG:1,124,0.8886,2.6216,-96.4655,7.76,1.52,[7.758626262657344 1.5195677161216736],1.0000,False,True,80.0850,94,17.71,23.625,in_progress,0.00,0
+SIM_TRACE_LOG:1,125,0.8889,2.4981,-93.4847,12.56,1.83,[12.557335942983627 1.834554171562195],1.0000,False,True,80.7685,95,17.71,23.692,in_progress,0.00,0
+SIM_TRACE_LOG:1,126,0.9001,2.3840,-89.7128,0.56,2.51,[0.5621572583913803 2.5136995784938336],1.0000,False,True,81.4124,96,17.71,23.76,in_progress,0.00,0
+SIM_TRACE_LOG:1,127,0.9139,2.2542,-87.1717,-5.13,2.63,[-5.131864696741104 2.6318069845438004],1.0000,False,True,82.1460,97,17.71,23.827,in_progress,0.00,0
+SIM_TRACE_LOG:1,128,0.9230,2.1075,-86.9917,2.58,1.98,[2.58051048964262 1.9772359788417817],0.5000,False,True,82.9674,98,17.71,23.891,in_progress,0.00,0
+SIM_TRACE_LOG:1,129,0.9328,1.9727,-86.4813,30.00,1.30,[30.0 1.3],0.5000,False,True,83.7236,99,17.71,23.959,in_progress,0.00,0
+SIM_TRACE_LOG:1,130,0.9516,1.8399,-84.4096,17.79,1.30,[17.79053695499897 1.3],0.5000,False,True,84.4797,100,17.71,24.027,in_progress,0.00,0
+SIM_TRACE_LOG:1,131,0.9780,1.7224,-81.2976,9.71,1.30,[9.70897313207388 1.3],0.5000,False,True,85.1597,100,17.71,24.086,in_progress,0.00,0
+SIM_TRACE_LOG:1,132,1.0140,1.6139,-77.1481,22.25,1.42,[22.247274667024612 1.416686749458313],0.5000,False,True,85.7997,101,17.71,24.158,in_progress,0.00,0
+SIM_TRACE_LOG:1,133,1.0565,1.5194,-72.8157,20.24,1.30,[20.243975669145584 1.3],1.0000,False,True,86.3710,102,17.71,24.224,in_progress,0.00,0
+SIM_TRACE_LOG:1,134,1.1006,1.4373,-68.9765,30.00,1.30,[30.0 1.3],1.0000,False,True,86.8745,102,17.71,24.302,in_progress,0.00,0
+SIM_TRACE_LOG:1,135,1.1657,1.3425,-63.4222,30.00,1.30,[30.0 1.3],1.0000,False,True,87.4758,103,17.71,24.358,in_progress,0.00,0
+SIM_TRACE_LOG:1,136,1.2150,1.2804,-59.8291,30.00,1.57,[30.0 1.5725411117076875],1.0000,False,True,87.8903,104,17.71,24.429,in_progress,0.00,0
+SIM_TRACE_LOG:1,137,1.2903,1.2074,-53.7544,24.88,1.30,[24.876151978969574 1.3],0.5000,False,True,88.4453,104,17.71,24.489,in_progress,0.00,0
+SIM_TRACE_LOG:1,138,1.3707,1.1451,-47.8024,30.00,1.30,[30.0 1.3],0.5000,False,True,89.1197,105,17.71,24.558,in_progress,0.00,0
+SIM_TRACE_LOG:1,139,1.4470,1.0921,-43.2991,24.97,1.69,[24.972644448280334 1.6893195867538453],0.5000,False,True,89.6129,106,17.71,24.625,in_progress,0.00,0
+SIM_TRACE_LOG:1,140,1.5366,1.0409,-38.1376,20.23,1.46,[20.231231153011322 1.4580305993556977],0.1000,False,True,90.2730,107,17.71,24.69,in_progress,0.00,0
+SIM_TRACE_LOG:1,141,1.6279,1.0042,-32.2210,21.91,1.30,[21.906664967536926 1.3],0.1000,False,True,91.2283,108,17.71,24.759,in_progress,0.00,0
+SIM_TRACE_LOG:1,142,1.7293,0.9718,-26.6255,30.00,1.30,[30.0 1.3],0.1000,False,True,92.0324,109,17.71,24.819,in_progress,0.00,0
+SIM_TRACE_LOG:1,143,1.8231,0.9503,-21.7221,2.36,1.82,[2.358781322836876 1.823544478416443],0.1000,False,True,92.7266,109,17.71,24.892,in_progress,0.00,0
+SIM_TRACE_LOG:1,144,1.9216,0.9263,-18.8851,-10.52,1.90,[-10.519848614931107 1.8972569048404695],0.1000,False,True,93.3810,110,17.71,24.959,in_progress,0.00,0
+SIM_TRACE_LOG:1,145,2.0217,0.8904,-19.3341,6.74,1.94,[6.735978377982974 1.9368387252092363],0.1000,False,True,93.9693,111,17.71,25.023,in_progress,0.00,0
+SIM_TRACE_LOG:1,146,2.1271,0.8556,-18.8688,15.84,2.01,[15.843343734741211 2.0055612534284593],0.5000,False,True,94.6499,112,17.71,25.093,in_progress,0.00,0
+SIM_TRACE_LOG:1,147,2.2438,0.8331,-15.4188,5.55,2.45,[5.547922141849995 2.4463282324373723],0.5000,False,True,95.3737,113,17.71,25.162,in_progress,0.00,0
+SIM_TRACE_LOG:1,148,2.3649,0.8227,-10.8279,26.44,2.45,[26.43624946475029 2.446077732741833],0.5000,False,True,96.1050,113,17.71,25.235,in_progress,0.00,0
+SIM_TRACE_LOG:1,149,2.5281,0.8269,-4.0783,2.98,1.30,[2.9761333018541336 1.3],0.5000,False,True,97.0243,114,17.71,25.289,in_progress,0.00,0
+SIM_TRACE_LOG:1,150,2.6391,0.8397,0.3245,-15.00,1.30,[-15.0 1.3],0.5000,False,True,97.6388,115,17.71,25.36,in_progress,0.00,0
+SIM_TRACE_LOG:1,151,2.7541,0.8515,2.9268,-15.00,1.30,[-15.0 1.3],0.5000,False,True,98.2893,116,17.71,25.422,in_progress,0.00,0
+SIM_TRACE_LOG:1,152,2.8628,0.8531,2.1518,-15.00,1.30,[-15.0 1.3],0.5000,False,True,98.8880,117,17.71,25.494,in_progress,0.00,0
+SIM_TRACE_LOG:1,153,2.9690,0.8478,0.1786,-15.00,1.30,[-15.0 1.3],0.5000,False,True,99.4845,117,17.71,25.564,in_progress,0.00,0
+SIM_TRACE_LOG:1,154,3.0680,0.8335,-2.9681,-15.00,1.30,[-15.0 1.3],0.5000,True,True,100.0000,0,17.71,25.623,lap_complete,0.00,0
+[s3] Successfully uploaded metrics to                  s3 bucket aws-deepracer-data-us-east-1-1 with s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/metrics/evaluation/evaluation-20251030200413-vYAA9w3xRAqa0DoseZSLFw.json.
+#033[95mTesting#033[0m - #033[94mName: #033[0mmain_level/agent #033[94mWorker: #033[0m0 #033[94mEpisode: #033[0m0 #033[94mTotal reward: #033[0m72.9 #033[94mSteps: #033[0m0 #033[94mTraining iteration: #033[0m0 
+#033[30;46magent: Finished evaluation phase. Success rate = 0.0, Avg Total Reward = 72.9#033[0m
+#033[30;46magent: Starting evaluation phase#033[0m
+Reset agent
+Reset agent finished
+SIM_TRACE_LOG:2,1,3.1998,0.6831,0.2054,0.45,3.21,[0.44987328350543976 3.2122936785221103],0.0000,False,True,0.7909,1,17.71,25.758,prepare,0.00,0
+SIM_TRACE_LOG:2,2,3.1997,0.6831,0.1833,-9.28,3.50,[-9.278637617826462 3.5],1.0000,False,True,0.7906,1,17.71,25.832,in_progress,0.00,0
+SIM_TRACE_LOG:2,3,3.2090,0.6816,-0.2291,-15.00,2.89,[-15.0 2.8887666136026384],1.0000,False,True,0.8427,1,17.71,25.892,in_progress,0.00,0
+SIM_TRACE_LOG:2,4,3.2275,0.6768,-1.5700,-15.00,3.50,[-15.0 3.5],1.0000,False,True,0.9474,1,17.71,25.959,in_progress,0.00,0
+SIM_TRACE_LOG:2,5,3.2657,0.6651,-4.1589,9.27,2.18,[9.273335449397564 2.177448251843453],1.0000,False,True,1.1629,1,17.71,26.021,in_progress,0.00,0
+SIM_TRACE_LOG:2,6,3.3165,0.6622,-4.0855,7.32,2.82,[7.320209434255958 2.817873847484589],1.0000,False,True,1.4495,2,17.71,26.093,in_progress,0.00,0
+SIM_TRACE_LOG:2,7,3.3799,0.6658,-2.3170,11.63,2.31,[11.630743704736233 2.3122984789311887],1.0000,False,True,1.8078,2,17.71,26.16,in_progress,0.00,0
+SIM_TRACE_LOG:2,8,3.4633,0.6772,0.8709,-15.00,3.50,[-15.0 3.5],1.0000,False,True,2.2788,3,17.71,26.224,in_progress,0.00,0
+SIM_TRACE_LOG:2,9,3.5601,0.6863,2.3304,-15.00,2.74,[-15.0 2.7367295503616336],1.0000,False,True,2.8256,3,17.71,26.292,in_progress,0.00,0
+SIM_TRACE_LOG:2,10,3.6690,0.6791,-0.2113,-15.00,3.50,[-15.0 3.5],1.0000,False,True,3.4404,4,17.71,26.358,in_progress,0.00,0
+SIM_TRACE_LOG:2,11,3.7945,0.6581,-4.5392,3.17,1.77,[3.17015927284956 1.7715860307216644],1.0000,False,True,4.1492,5,17.71,26.424,in_progress,0.00,0
+SIM_TRACE_LOG:2,12,3.9162,0.6382,-7.0466,24.99,1.30,[24.988315254449844 1.3],1.0000,False,True,4.8363,6,17.71,26.493,in_progress,0.00,0
+SIM_TRACE_LOG:2,13,4.0397,0.6305,-5.5293,25.59,1.30,[25.585094690322876 1.3],1.0000,False,True,5.5337,7,17.71,26.555,in_progress,0.00,0
+SIM_TRACE_LOG:2,14,4.1550,0.6313,-2.9920,24.79,1.30,[24.788076281547546 1.3],1.0000,False,True,6.1849,7,17.71,26.624,in_progress,0.00,0
+SIM_TRACE_LOG:2,15,4.2525,0.6387,-0.2095,-15.00,2.00,[-15.0 1.9978032618761064],1.0000,False,True,6.7349,8,17.71,26.689,in_progress,0.00,0
+SIM_TRACE_LOG:2,16,4.3562,0.6464,1.3971,-3.95,3.50,[-3.950996696949005 3.5],1.0000,False,True,7.3211,9,17.71,26.755,in_progress,0.00,0
+SIM_TRACE_LOG:2,17,4.4768,0.6443,0.3546,-10.24,3.00,[-10.237770080566406 2.9981576383113864],1.0000,False,True,8.0018,9,17.71,26.821,in_progress,0.00,0
+SIM_TRACE_LOG:2,18,4.5984,0.6313,-2.5093,-7.87,1.30,[-7.873201668262482 1.3],1.0000,False,True,8.6885,10,17.71,26.89,in_progress,0.00,0
+SIM_TRACE_LOG:2,19,4.7275,0.6066,-6.5852,6.89,1.30,[6.891503753140569 1.3],0.5000,False,True,9.4175,11,17.71,26.956,in_progress,0.00,0
+SIM_TRACE_LOG:2,20,4.8415,0.5868,-7.8945,18.80,1.30,[18.79727929830551 1.3],0.5000,False,True,10.0608,12,17.71,27.027,in_progress,0.00,0
+SIM_TRACE_LOG:2,21,4.9562,0.5791,-6.1838,24.88,1.30,[24.87905815243721 1.3],0.5000,False,True,10.7085,13,17.71,27.094,in_progress,0.00,0
+SIM_TRACE_LOG:2,22,5.0627,0.5842,-2.6174,4.21,1.70,[4.208141639828682 1.7040771126747132],0.5000,False,True,11.3100,13,17.71,27.16,in_progress,0.00,0
+SIM_TRACE_LOG:2,23,5.1611,0.5891,-0.6788,19.50,1.30,[19.49891835451126 1.3],0.5000,False,True,11.8658,14,17.71,27.222,in_progress,0.00,0
+SIM_TRACE_LOG:2,24,5.2659,0.5983,1.6137,21.25,1.30,[21.247664988040924 1.3],0.5000,False,True,12.4579,15,17.71,27.291,in_progress,0.00,0
+SIM_TRACE_LOG:2,25,5.3623,0.6186,5.4375,0.16,3.34,[0.1594289392232895 3.3369869768619536],1.0000,False,True,13.0020,15,17.71,27.362,in_progress,0.00,0
+SIM_TRACE_LOG:2,26,5.4704,0.6417,8.1511,-12.96,2.14,[-12.9598930478096 2.1439143866300583],1.0000,False,True,13.6120,16,17.71,27.424,in_progress,0.00,0
+SIM_TRACE_LOG:2,27,5.5834,0.6467,5.8338,-11.56,1.73,[-11.563524305820465 1.7282007455825807],1.0000,False,True,14.2503,17,17.71,27.492,in_progress,0.00,0
+SIM_TRACE_LOG:2,28,5.6980,0.6412,2.2554,9.66,1.30,[9.655267596244812 1.3],1.0000,False,True,14.8980,18,17.71,27.555,in_progress,0.00,0
+SIM_TRACE_LOG:2,29,5.8107,0.6410,1.3382,15.61,1.30,[15.608107969164848 1.3],1.0000,False,True,15.5352,18,17.71,27.626,in_progress,0.00,0
+SIM_TRACE_LOG:2,30,5.9107,0.6532,3.5158,8.61,1.30,[8.612007983028889 1.3],1.0000,False,True,16.1004,19,17.71,27.692,in_progress,0.00,0
+SIM_TRACE_LOG:2,31,6.0129,0.6780,7.4379,7.40,1.30,[7.400553748011589 1.3],1.0000,False,True,16.6764,20,17.71,27.755,in_progress,0.00,0
+SIM_TRACE_LOG:2,32,6.1036,0.7043,10.6497,30.00,1.30,[30.0 1.3],1.0000,False,True,17.1913,20,17.71,27.823,in_progress,0.00,0
+SIM_TRACE_LOG:2,33,6.1917,0.7354,13.7456,30.00,1.53,[30.0 1.5259401857852937],1.0000,False,True,17.6933,21,17.71,27.892,in_progress,0.00,0
+SIM_TRACE_LOG:2,34,6.2839,0.7829,18.9102,2.19,1.86,[2.1922657638788223 1.85504769384861],0.5000,False,True,18.2502,22,17.71,27.958,in_progress,0.00,0
+SIM_TRACE_LOG:2,35,6.3687,0.8286,22.2612,-5.49,1.30,[-5.486547946929932 1.3],0.5000,False,True,18.7868,22,17.71,28.029,in_progress,0.00,0
+SIM_TRACE_LOG:2,36,6.4665,0.8695,22.4866,30.00,1.30,[30.0 1.3],0.5000,False,True,19.5412,23,17.71,28.092,in_progress,0.00,0
+SIM_TRACE_LOG:2,37,6.5524,0.9093,23.3342,30.00,1.30,[30.0 1.3],0.5000,False,True,20.0732,24,17.71,28.16,in_progress,0.00,0
+SIM_TRACE_LOG:2,38,6.6435,0.9617,25.8590,30.00,1.30,[30.0 1.3],0.5000,False,True,20.8262,25,17.71,28.224,in_progress,0.00,0
+SIM_TRACE_LOG:2,39,6.7183,1.0135,28.8835,30.00,1.30,[30.0 1.3],0.5000,False,True,21.4316,25,17.71,28.298000000000002,in_progress,0.00,0
+SIM_TRACE_LOG:2,40,6.8010,1.0828,33.2321,30.00,1.30,[30.0 1.3],0.5000,False,True,22.1687,26,17.71,28.36,in_progress,0.00,0
+SIM_TRACE_LOG:2,41,6.8644,1.1466,37.3110,30.00,1.34,[30.0 1.3436262369155885],0.5000,False,True,22.6757,27,17.71,28.423000000000002,in_progress,0.00,0
+SIM_TRACE_LOG:2,42,6.9225,1.2197,42.2925,30.00,1.51,[30.0 1.5069253206253053],0.5000,False,True,23.4177,28,17.71,28.488,in_progress,0.00,0
+SIM_TRACE_LOG:2,43,6.9740,1.3046,48.3561,30.00,1.98,[30.0 1.9787844955921174],0.5000,False,True,24.1205,29,17.71,28.557,in_progress,0.00,0
+SIM_TRACE_LOG:2,44,7.0189,1.4019,54.9575,30.00,2.21,[30.0 2.208679470419884],0.5000,False,True,24.8490,29,17.71,28.625,in_progress,0.00,0
+SIM_TRACE_LOG:2,45,7.0535,1.5101,62.1325,30.00,1.99,[30.0 1.9903620809316638],0.1000,False,True,25.6186,30,17.71,28.694,in_progress,0.00,0
+SIM_TRACE_LOG:2,46,7.0739,1.6258,69.9168,30.00,2.53,[30.0 2.529176861792803],0.1000,False,True,26.5106,31,17.71,28.762,in_progress,0.00,0
+SIM_TRACE_LOG:2,47,7.0784,1.7617,79.3416,30.00,2.00,[30.0 2.0020280480384827],0.1000,False,True,27.5030,32,17.71,28.82,in_progress,0.00,0
+SIM_TRACE_LOG:2,48,7.0698,1.8853,87.3621,28.36,2.98,[28.359668254852295 2.9801564097404483],0.5000,False,True,28.3008,33,17.71,28.894,in_progress,0.00,0
+SIM_TRACE_LOG:2,49,7.0449,2.0269,95.9875,30.00,1.30,[30.0 1.3],0.5000,False,True,29.2319,35,17.71,28.954,in_progress,0.00,0
+SIM_TRACE_LOG:2,50,7.0094,2.1569,104.3532,30.00,1.86,[30.0 1.856738191843033],0.5000,False,True,30.1306,36,17.71,29.025,in_progress,0.00,0
+SIM_TRACE_LOG:2,51,6.9631,2.2721,112.6650,28.38,2.96,[28.38130697607994 2.9626834392547607],0.5000,False,True,30.9524,37,17.71,29.094,in_progress,0.00,0
+SIM_TRACE_LOG:2,52,6.9056,2.3777,120.2416,20.48,1.48,[20.47760009765625 1.4810057282447815],0.5000,False,True,31.7039,37,17.71,29.155,in_progress,0.00,0
+SIM_TRACE_LOG:2,53,6.8314,2.4830,129.0740,22.70,2.97,[22.701340466737747 2.9713322639465334],0.5000,False,True,32.4784,38,17.71,29.225,in_progress,0.00,0
+SIM_TRACE_LOG:2,54,6.7518,2.5769,135.4290,30.00,1.50,[30.0 1.4993155717849733],1.0000,False,True,33.2003,39,17.71,29.294,in_progress,0.00,0
+SIM_TRACE_LOG:2,55,6.6585,2.6667,142.4753,14.53,1.30,[14.52647365629673 1.3],1.0000,False,True,33.9187,40,17.71,29.357,in_progress,0.00,0
+SIM_TRACE_LOG:2,56,6.5734,2.7397,147.6410,22.25,2.44,[22.247088253498077 2.438968385010958],1.0000,False,True,34.5124,41,17.71,29.429,in_progress,0.00,0
+SIM_TRACE_LOG:2,57,6.4739,2.8083,153.1157,30.00,1.30,[30.0 1.3],1.0000,False,True,35.1215,41,17.71,29.491,in_progress,0.00,0
+SIM_TRACE_LOG:2,58,6.3839,2.8536,158.5745,11.90,1.30,[11.897572875022888 1.3],0.5000,False,True,35.5999,42,17.71,29.561,in_progress,0.00,0
+SIM_TRACE_LOG:2,59,6.2807,2.8954,164.5705,-15.00,1.30,[-15.0 1.3],0.5000,False,True,36.1978,43,17.71,29.626,in_progress,0.00,0
+SIM_TRACE_LOG:2,60,6.1940,2.9311,167.4558,-3.89,1.30,[-3.8897913694381714 1.3],0.5000,False,True,36.6580,43,17.71,29.689,in_progress,0.00,0
+SIM_TRACE_LOG:2,61,6.1175,2.9645,167.5168,30.00,1.35,[30.0 1.3486965835094453],0.1000,False,True,37.0938,44,17.71,29.771,in_progress,0.00,0
+SIM_TRACE_LOG:2,62,6.0113,2.9889,168.3386,30.00,2.48,[30.0 2.480318758636713],0.1000,False,True,37.6597,44,17.71,29.828,in_progress,0.00,0
+SIM_TRACE_LOG:2,63,5.9252,2.9954,170.8393,30.00,2.38,[30.0 2.375255029089749],0.1000,False,True,38.1452,45,17.71,29.89,in_progress,0.00,0
+SIM_TRACE_LOG:2,64,5.8152,2.9872,176.3076,-0.78,1.30,[-0.7802253216505051 1.3],0.1000,False,True,38.7664,46,17.71,29.96,in_progress,0.00,0
+SIM_TRACE_LOG:2,65,5.7028,2.9731,-177.7187,17.21,1.30,[17.213887497782707 1.3],0.1000,False,True,39.4029,47,17.71,30.023,in_progress,0.00,0
+SIM_TRACE_LOG:2,66,5.5999,2.9583,-174.0882,14.02,1.30,[14.019921720027924 1.3],0.5000,False,True,39.9892,47,17.71,30.094,in_progress,0.00,0
+SIM_TRACE_LOG:2,67,5.5045,2.9335,-170.2000,-15.00,1.60,[-15.0 1.6021603465080263],0.5000,False,True,40.5281,48,17.71,30.155,in_progress,0.00,0
+SIM_TRACE_LOG:2,68,5.4042,2.9086,-168.6202,-15.00,1.39,[-15.0 1.3876010179519653],0.5000,False,True,41.0947,49,17.71,30.226,in_progress,0.00,0
+SIM_TRACE_LOG:2,69,5.3076,2.8970,-170.3156,-15.00,1.67,[-15.0 1.6725754380226137],0.5000,False,True,41.6287,49,17.71,30.293,in_progress,0.00,0
+SIM_TRACE_LOG:2,70,5.2079,2.8983,-174.2529,-15.00,1.79,[-15.0 1.7932708382606508],0.5000,False,True,42.1915,50,17.71,30.358,in_progress,0.00,0
+SIM_TRACE_LOG:2,71,5.1076,2.9097,-178.8040,-15.00,1.72,[-15.0 1.7177566826343538],0.5000,False,True,42.7769,50,17.71,30.424,in_progress,0.00,0
+SIM_TRACE_LOG:2,72,4.9981,2.9354,175.1622,-15.00,1.30,[-15.0 1.3],0.5000,False,True,43.5078,51,17.71,30.493,in_progress,0.00,0
+SIM_TRACE_LOG:2,73,4.8973,2.9711,169.1572,-15.00,2.39,[-15.0 2.3869838055223225],0.5000,False,True,44.2237,52,17.71,30.561,in_progress,0.00,0
+SIM_TRACE_LOG:2,74,4.7982,3.0192,162.9858,-15.00,2.47,[-15.0 2.468568179756403],0.1000,False,True,45.0085,53,17.71,30.627,in_progress,0.00,0
+SIM_TRACE_LOG:2,75,4.6931,3.0866,155.8114,-2.89,2.34,[-2.892218828201294 2.3372700326144695],0.1000,False,True,45.9275,54,17.71,30.689,in_progress,0.00,0
+SIM_TRACE_LOG:2,76,4.5894,3.1582,150.3565,-1.38,2.61,[-1.3805124163627625 2.605913798511028],0.1000,False,True,46.8533,55,17.71,30.77,in_progress,0.00,0
+SIM_TRACE_LOG:2,77,4.4463,3.2556,147.3670,-15.00,2.88,[-15.0 2.8838964700698853],0.1000,False,True,47.9165,57,17.71,30.821,in_progress,0.00,0
+SIM_TRACE_LOG:2,78,4.3506,3.3276,145.3634,-15.00,3.11,[-15.0 3.1053486585617067],0.5000,False,True,48.6457,57,17.71,30.895,in_progress,0.00,0
+SIM_TRACE_LOG:2,79,4.2203,3.4456,140.6969,-15.00,3.50,[-15.0 3.5],0.5000,False,True,49.6394,59,17.71,30.959,in_progress,0.00,0
+SIM_TRACE_LOG:2,80,4.1073,3.5715,134.8596,3.55,1.49,[3.5503245145082474 1.4909349083900452],0.5000,False,True,50.5863,60,17.71,31.021,in_progress,0.00,0
+SIM_TRACE_LOG:2,81,3.9938,3.7071,128.1581,22.49,1.39,[22.48674362897873 1.3915680348873138],0.5000,False,True,51.5857,61,17.71,31.094,in_progress,0.00,0
+SIM_TRACE_LOG:2,82,3.8833,3.8245,125.4323,27.63,1.30,[27.63485625386238 1.3],0.5000,False,True,52.4939,62,17.71,31.158,in_progress,0.00,0
+SIM_TRACE_LOG:2,83,3.7695,3.9298,126.6316,14.43,1.30,[14.428815767168999 1.3],0.5000,False,True,53.3604,63,17.71,31.223,in_progress,0.00,0
+SIM_TRACE_LOG:2,84,3.6745,4.0025,131.8444,8.32,1.63,[8.322182726114988 1.6332243740558625],1.0000,False,True,54.0172,64,17.71,31.296,in_progress,0.00,0
+SIM_TRACE_LOG:2,85,3.5631,4.0750,139.0179,20.29,1.38,[20.28960809111595 1.3838952124118806],1.0000,False,True,54.7329,65,17.71,31.355,in_progress,0.00,0
+SIM_TRACE_LOG:2,86,3.4636,4.1288,144.4037,18.23,2.36,[18.234698697924614 2.3599148854613308],1.0000,False,True,55.3226,65,17.71,31.425,in_progress,0.00,0
+SIM_TRACE_LOG:2,87,3.3571,4.1773,149.1703,26.07,1.30,[26.07229918241501 1.3],1.0000,False,True,55.9613,66,17.71,31.491,in_progress,0.00,0
+SIM_TRACE_LOG:2,88,3.2545,4.2145,153.6852,30.00,1.30,[30.0 1.3],0.5000,False,True,56.5274,67,17.71,31.558,in_progress,0.00,0
+SIM_TRACE_LOG:2,89,3.1499,4.2452,157.7050,22.00,1.30,[21.999528408050537 1.3],0.5000,False,True,57.2393,68,17.71,31.625,in_progress,0.00,0
+SIM_TRACE_LOG:2,90,3.0545,4.2643,161.6834,11.29,1.30,[11.294065117835999 1.3],0.5000,False,True,57.8561,68,17.71,31.694,in_progress,0.00,0
+SIM_TRACE_LOG:2,91,2.9591,4.2751,165.8925,-7.32,1.30,[-7.31587216258049 1.3],0.1000,False,True,58.6597,69,17.71,31.757,in_progress,0.00,0
+SIM_TRACE_LOG:2,92,2.8676,4.2829,169.2035,-15.00,1.30,[-15.0 1.3],0.1000,False,True,59.1747,70,17.71,31.825,in_progress,0.00,0
+SIM_TRACE_LOG:2,93,2.7695,4.2996,169.6682,-15.00,1.30,[-15.0 1.3],0.1000,False,True,59.9456,71,17.71,31.89,in_progress,0.00,0
+SIM_TRACE_LOG:2,94,2.6830,4.3198,168.7330,-15.00,1.30,[-15.0 1.3],0.5000,False,True,60.4359,72,17.71,31.959,in_progress,0.00,0
+SIM_TRACE_LOG:2,95,2.5971,4.3464,166.6894,30.00,1.30,[30.0 1.3],0.5000,False,True,60.9352,72,17.71,32.026,in_progress,0.00,0
+SIM_TRACE_LOG:2,96,2.5112,4.3682,166.4170,14.94,1.75,[14.944329634308815 1.7494903266429902],0.5000,False,True,61.4204,73,17.71,32.095,in_progress,0.00,0
+SIM_TRACE_LOG:2,97,2.4093,4.3784,169.4103,18.92,1.86,[18.918951004743576 1.8633944272994996],0.5000,False,True,62.0224,73,17.71,32.156,in_progress,0.00,0
+SIM_TRACE_LOG:2,98,2.3118,4.3740,174.2001,30.00,1.30,[30.0 1.3],0.5000,False,True,62.5732,74,17.71,32.224,in_progress,0.00,0
+SIM_TRACE_LOG:2,99,2.2081,4.3580,179.9040,-13.30,1.30,[-13.301201462745667 1.3],0.5000,False,True,63.1594,75,17.71,32.295,in_progress,0.00,0
+SIM_TRACE_LOG:2,100,2.1096,4.3396,-175.9356,-4.99,1.30,[-4.992431402206421 1.3],0.5000,False,True,63.7134,75,17.71,32.356,in_progress,0.00,0
+SIM_TRACE_LOG:2,101,2.0147,4.3315,-175.6736,21.83,1.30,[21.830466091632843 1.3],0.5000,False,True,64.2502,76,17.71,32.424,in_progress,0.00,0
+SIM_TRACE_LOG:2,102,1.9178,4.3221,-175.1487,30.00,1.30,[30.0 1.3],0.5000,False,True,64.7991,77,17.71,32.495,in_progress,0.00,0
+SIM_TRACE_LOG:2,103,1.8269,4.3030,-172.6624,-1.80,1.30,[-1.8040117621421814 1.3],0.5000,False,True,65.3207,77,17.71,32.559,in_progress,0.00,0
+SIM_TRACE_LOG:2,104,1.7409,4.2824,-170.6109,8.79,1.56,[8.79439014941454 1.5607439160346985],0.1000,False,True,65.8098,78,17.71,32.624,in_progress,0.00,0
+SIM_TRACE_LOG:2,105,1.6492,4.2630,-169.6989,21.22,1.30,[21.224033385515213 1.3],0.1000,False,True,66.3407,78,17.71,32.684,in_progress,0.00,0
+SIM_TRACE_LOG:2,106,1.5562,4.2344,-167.1544,30.00,1.30,[30.0 1.3],0.1000,False,True,66.8719,79,17.71,32.759,in_progress,0.00,0
+SIM_TRACE_LOG:2,107,1.4673,4.1962,-163.4077,30.00,1.30,[30.0 1.3],0.1000,False,True,67.4265,80,17.71,32.823,in_progress,0.00,0
+SIM_TRACE_LOG:2,108,1.3877,4.1536,-159.5200,30.00,1.30,[30.0 1.3],0.1000,False,True,68.2283,81,17.71,32.886,in_progress,0.00,0
+SIM_TRACE_LOG:2,109,1.3037,4.0956,-154.1743,30.00,1.30,[30.0 1.3],0.1000,False,False,69.2077,82,17.71,32.959,in_progress,0.00,0
+SIM_TRACE_LOG:2,110,1.2356,4.0387,-149.4801,30.00,1.37,[30.0 1.3688322842121126],0.1000,False,False,70.0179,83,17.71,33.023,in_progress,0.00,0
+SIM_TRACE_LOG:2,111,1.1721,3.9746,-144.4302,30.00,1.30,[30.0 1.3],0.1000,False,False,70.7902,84,17.71,33.092,in_progress,0.00,0
+SIM_TRACE_LOG:2,112,1.1061,3.8939,-138.6154,30.00,1.30,[30.0 1.3],0.1000,False,False,71.6456,85,17.71,33.157,in_progress,0.00,0
+SIM_TRACE_LOG:2,113,1.0563,3.8261,-134.6244,30.00,1.73,[30.0 1.7296336710453035],0.1000,False,False,72.4379,85,17.71,33.219,in_progress,0.00,0
+SIM_TRACE_LOG:2,114,1.0051,3.7360,-128.8853,30.00,1.91,[30.0 1.9082276195287706],0.1000,False,False,73.3339,87,17.71,33.291,in_progress,0.00,0
+SIM_TRACE_LOG:2,115,0.9635,3.6312,-121.7762,30.00,1.79,[30.0 1.7943987548351288],0.1000,False,False,74.2079,88,17.71,33.36,in_progress,0.00,0
+SIM_TRACE_LOG:2,116,0.9374,3.5312,-115.1842,30.00,2.61,[30.0 2.613862469792366],0.1000,False,False,74.9048,88,17.71,33.427,in_progress,0.00,0
+SIM_TRACE_LOG:2,117,0.9228,3.4100,-106.7059,14.08,2.53,[14.077637493610382 2.5328673578798773],0.1000,False,True,75.6925,89,17.71,33.49,in_progress,0.00,0
+SIM_TRACE_LOG:2,118,0.9231,3.2714,-97.0671,-1.38,1.30,[-1.3769926875829697 1.3],0.5000,False,True,76.5633,90,17.71,33.555,in_progress,0.00,0
+SIM_TRACE_LOG:2,119,0.9276,3.1476,-89.7375,16.52,1.30,[16.517850905656815 1.3],0.5000,False,True,77.2798,91,17.71,33.627,in_progress,0.00,0
+SIM_TRACE_LOG:2,120,0.9369,3.0329,-83.7534,11.97,1.30,[11.965250372886658 1.3],0.5000,False,True,77.9175,92,17.71,33.698,in_progress,0.00,0
+SIM_TRACE_LOG:2,121,0.9563,2.9261,-77.8416,-15.00,1.33,[-15.0 1.3260950446128845],0.5000,False,True,78.5078,93,17.71,33.756,in_progress,0.00,0
+SIM_TRACE_LOG:2,122,0.9765,2.8355,-74.4327,-15.00,1.35,[-15.0 1.3503709197044373],0.5000,False,True,79.0118,93,17.71,33.839,in_progress,0.00,0
+SIM_TRACE_LOG:2,123,0.9986,2.7250,-73.5443,-15.00,2.02,[-15.0 2.024455609917641],0.5000,False,True,79.6480,94,17.71,33.89,in_progress,0.00,0
+SIM_TRACE_LOG:2,124,1.0119,2.6392,-75.8385,-15.00,1.30,[-15.0 1.3],0.5000,False,True,80.1291,95,17.71,33.962,in_progress,0.00,0
+SIM_TRACE_LOG:2,125,1.0194,2.5446,-79.2287,-15.00,1.30,[-15.0 1.3],0.5000,False,True,80.6606,95,17.71,34.025,in_progress,0.00,0
+SIM_TRACE_LOG:2,126,1.0224,2.4470,-82.5178,-15.00,1.62,[-15.0 1.617522841691971],0.5000,False,True,81.2040,96,17.71,34.088,in_progress,0.00,0
+SIM_TRACE_LOG:2,127,1.0165,2.3458,-86.6338,24.97,1.84,[24.96673956513405 1.841261023283005],1.0000,False,True,81.7568,96,17.71,34.155,in_progress,0.00,0
+SIM_TRACE_LOG:2,128,1.0110,2.2527,-89.0618,30.00,1.30,[30.0 1.3],1.0000,False,True,82.2655,97,17.71,34.225,in_progress,0.00,0
+SIM_TRACE_LOG:2,129,1.0205,2.1487,-87.3900,30.00,1.30,[30.0 1.3],1.0000,False,True,82.8512,98,17.71,34.295,in_progress,0.00,0
+SIM_TRACE_LOG:2,130,1.0405,2.0494,-84.1144,30.00,1.30,[30.0 1.3],1.0000,False,True,83.4230,98,17.71,34.357,in_progress,0.00,0
+SIM_TRACE_LOG:2,131,1.0653,1.9636,-80.6778,30.00,1.30,[30.0 1.3],1.0000,False,True,83.9261,99,17.71,34.429,in_progress,0.00,0
+SIM_TRACE_LOG:2,132,1.1038,1.8676,-75.8499,30.00,1.30,[30.0 1.3],1.0000,False,True,84.5006,100,17.71,34.493,in_progress,0.00,0
+SIM_TRACE_LOG:2,133,1.1474,1.7868,-70.9325,1.99,1.30,[1.9949208945035934 1.3],0.5000,False,True,84.9978,100,17.71,34.56,in_progress,0.00,0
+SIM_TRACE_LOG:2,134,1.1940,1.7046,-67.1954,17.58,1.30,[17.577220872044563 1.3],0.5000,False,True,85.5059,101,17.71,34.621,in_progress,0.00,0
+SIM_TRACE_LOG:2,135,1.2419,1.6195,-64.8157,-1.42,1.30,[-1.4175993204116821 1.3],0.5000,False,True,86.0328,102,17.71,34.689,in_progress,0.00,0
+SIM_TRACE_LOG:2,136,1.2860,1.5427,-63.2657,11.99,1.30,[11.988562792539597 1.3],0.5000,False,True,86.5145,102,17.71,34.759,in_progress,0.00,0
+SIM_TRACE_LOG:2,137,1.3313,1.4679,-61.8133,8.93,2.61,[8.92628526315093 2.611643844842911],0.1000,False,True,86.9818,103,17.71,34.821,in_progress,0.00,0
+SIM_TRACE_LOG:2,138,1.3911,1.3820,-59.1838,30.00,1.32,[30.0 1.3216122269630433],0.1000,False,True,87.6166,103,17.71,34.89,in_progress,0.00,0
+SIM_TRACE_LOG:2,139,1.4543,1.2998,-56.6077,30.00,1.30,[30.0 1.3],0.1000,False,True,88.2955,104,17.71,34.961,in_progress,0.00,0
+SIM_TRACE_LOG:2,140,1.5168,1.2312,-53.4948,30.00,1.30,[30.0 1.3],0.1000,False,True,88.7850,105,17.71,35.026,in_progress,0.00,0
+SIM_TRACE_LOG:2,141,1.5945,1.1601,-49.1934,30.00,1.39,[30.0 1.3864298939704895],0.1000,False,False,89.9933,106,17.71,35.09,in_progress,0.00,0
+SIM_TRACE_LOG:2,142,1.6649,1.1088,-44.8059,30.00,1.30,[30.0 1.3],0.1000,False,False,91.1373,108,17.71,35.165,in_progress,0.00,0
+SIM_TRACE_LOG:2,143,1.7554,1.0575,-38.9317,30.00,1.30,[30.0 1.3],0.1000,False,False,92.0179,109,17.71,35.227,in_progress,0.00,0
+SIM_TRACE_LOG:2,144,1.8294,1.0257,-34.0313,30.00,1.30,[30.0 1.3],0.1000,False,False,92.6732,109,17.71,35.29,in_progress,0.00,0
+SIM_TRACE_LOG:2,145,1.9170,0.9978,-28.3724,30.00,1.30,[30.0 1.3],0.1000,False,False,93.2980,110,17.71,35.363,in_progress,0.00,0
+SIM_TRACE_LOG:2,146,2.0059,0.9800,-22.5979,0.84,2.74,[0.8391771465539932 2.7370273143053057],0.1000,False,False,93.8088,111,17.71,35.424,in_progress,0.00,0
+SIM_TRACE_LOG:2,147,2.1043,0.9609,-18.1605,-12.96,2.04,[-12.963193506002426 2.0409632325172424],0.1000,False,False,94.4731,111,17.71,35.493,in_progress,0.00,0
+SIM_TRACE_LOG:2,148,2.1971,0.9250,-19.2681,-9.69,1.76,[-9.693331271409988 1.7563225388526917],0.1000,False,False,95.1000,112,17.71,35.558,in_progress,0.00,0
+SIM_TRACE_LOG:2,149,2.2969,0.8730,-22.7086,12.81,1.68,[12.806680798530579 1.684949016571045],0.1000,False,True,95.6696,113,17.71,35.624,in_progress,0.00,0
+SIM_TRACE_LOG:2,150,2.4029,0.8195,-24.3159,12.80,1.83,[12.801312692463398 1.8306548178195954],0.5000,False,True,96.3193,114,17.71,35.692,in_progress,0.00,0
+SIM_TRACE_LOG:2,151,2.5040,0.7830,-22.4867,13.11,2.46,[13.107784911990166 2.4648995496332646],0.5000,False,True,96.8801,114,17.71,35.764,in_progress,0.00,0
+SIM_TRACE_LOG:2,152,2.6384,0.7512,-18.0030,-4.60,1.83,[-4.601917862892151 1.8342947304248811],1.0000,False,True,97.6271,115,17.71,35.823,in_progress,0.00,0
+SIM_TRACE_LOG:2,153,2.7595,0.7258,-15.0352,-6.74,1.30,[-6.742269694805145 1.3],1.0000,False,True,98.3087,116,17.71,35.891,in_progress,0.00,0
+SIM_TRACE_LOG:2,154,2.8750,0.6902,-15.8985,11.99,1.61,[11.988375037908554 1.6071964025497438],1.0000,False,True,98.9571,117,17.71,35.956,in_progress,0.00,0
+SIM_TRACE_LOG:2,155,2.9856,0.6559,-16.3939,30.00,1.72,[30.0 1.7206563651561737],1.0000,False,True,99.5818,118,17.71,36.026,in_progress,0.00,0
+SIM_TRACE_LOG:2,156,3.1049,0.6328,-13.9679,30.00,1.33,[30.0 1.3343964397907258],1.0000,True,True,100.0000,0,17.71,36.091,lap_complete,0.00,0
+[s3] Successfully uploaded metrics to                  s3 bucket aws-deepracer-data-us-east-1-1 with s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/metrics/evaluation/evaluation-20251030200413-vYAA9w3xRAqa0DoseZSLFw.json.
+#033[95mTesting#033[0m - #033[94mName: #033[0mmain_level/agent #033[94mWorker: #033[0m0 #033[94mEpisode: #033[0m0 #033[94mTotal reward: #033[0m83.2 #033[94mSteps: #033[0m0 #033[94mTraining iteration: #033[0m0 
+#033[30;46magent: Finished evaluation phase. Success rate = 0.0, Avg Total Reward = 83.2#033[0m
+Waiting to flush the Mp4 queue for racecar_0...
+Done flushing the Mp4 queue for racecar_0...
+[s3] Successfully uploaded simtrace_eval to              s3 bucket aws-deepracer-data-us-east-1-1 with s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/sim-trace/evaluation/20251030200413-vYAA9w3xRAqa0DoseZSLFw/evaluation-simtrace/0-iteration.csv.
+[s3] Successfully uploaded pip to              s3 bucket aws-deepracer-data-us-east-1-1 with s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/videos/evaluation/evaluation-20251030200413-vYAA9w3xRAqa0DoseZSLFw/camera-pip/0-video.mp4.
+[s3] Successfully uploaded degree45 to              s3 bucket aws-deepracer-data-us-east-1-1 with s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/videos/evaluation/evaluation-20251030200413-vYAA9w3xRAqa0DoseZSLFw/camera-45degree/0-video.mp4.
+[s3] Successfully uploaded topview to              s3 bucket aws-deepracer-data-us-east-1-1 with s3 key data-4372c5a4-77df-4429-8419-6a8abe70a542/models/0b9fb657-2fa5-4861-a8ad-ab62f59af943/videos/evaluation/evaluation-20251030200413-vYAA9w3xRAqa0DoseZSLFw/camera-topview/0-video.mp4.
+Evaluation job complete
+[markov_utils] Stored variable for stopping ros node monitor
+08:10:08 INFO:[NodeMonitor] Stopping ROS node monitor
+08:10:09 INFO:[DeepRacerNodeMonitor]: Skipping CW metrics upload
+#033[31m================================================================================REQUIRED process [agent-9] has died!
+process has finished cleanly
+log file: /root/.ros/log/4450a3e4-b5cc-11f0-8d4d-ee41d2184ad9/agent-9*.log
+Initiating shutdown!
+================================================================================#033[0m
+[agent-9] killing on exit
+[agents_video_editor-8] killing on exit
+[car_reset_node-7] killing on exit
+[gazebo-6] killing on exit
+[racecar/kinesis_video_streamer-5] killing on exit
+[racecar/h264_video_encoder-4] killing on exit
+[racecar/robot_state_publisher-3] killing on exit[racecar/controller_manager-2] killing on exit
+[INFO] [1761855014.672657, 36.108000]: Shutting down spawner. Stopping and unloading controllers...
+[INFO] [1761855014.674579, 36.108000]: Stopping all controllers...
+[libx264 @ 0x55d5659cf440] frame I:50    Avg QP: 5.88  size: 86991
+[libx264 @ 0x55d5659cf440] frame P:693   Avg QP: 8.08  size: 10910
+[libx264 @ 0x55d5659cf440] mb I  I16..4: 28.0% 15.7% 56.3%
+[libx264 @ 0x55d5659cf440] mb P  I16..4:  2.8%  2.9%  3.4%  P16..4: 13.6%  6.6%  5.3%  0.0%  0.0%    skip:65.4%
+[libx264 @ 0x55d5659cf440] final ratefactor: 11.61
+[libx264 @ 0x55d5659cf440] 8x8 transform intra:24.9% inter:17.6%
+[libx264 @ 0x55d5659cf440] coded y,uvDC,uvAC intra: 75.4% 50.8% 39.7% inter: 16.5% 7.1% 4.8%
+[libx264 @ 0x55d5659cf440] i16 v,h,dc,p: 62% 13% 19%  6%
+[libx264 @ 0x55d5659cf440] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu:  8% 25% 32%  6%  5%  3%  7%  4% 12%
+[libx264 @ 0x55d5659cf440] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 10% 22% 20%  7%  8%  5% 12%  5% 12%
+[libx264 @ 0x55d5659cf440] i8c dc,h,v,p: 65% 22% 10%  3%
+[libx264 @ 0x55d5659cf440] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 0x55d5659cf440] kb/s:1923.58
+#033[31m[gazebo-6] escalating to SIGTERM#033[0m
+#033[31m[racecar/controller_manager-2] escalating to SIGTERM#033[0m
+[WARN] [1761855029.710916, 36.108000]: Controller Spawner error while taking down controllers: transport error completing service call: unable to receive data from sender, check sender's logs for details
+shutting down processing monitor...
+... shutting down processing monitor complete
+#033[1mdone#033[0m
+08:11:09 INFO:[NodeMonitor] Cancelling sim job
+08:11:09 INFO:simapp_exit_gracefully - Job type is SageOnly. Killing SimApp and Training jobs by PID
+simapp_exit_gracefully - Waiting for simapp and training job to come up.
+simapp_exit_gracefully - Waiting for simapp and training job to come up.
+simapp_exit_gracefully - Waiting for simapp and training job to come up.
+simapp_exit_gracefully - Waiting for simapp and training job to come up.
+simapp_exit_gracefully - Stopped waiting. SimApp Pid Exists=True, Training Pid Exists=False.
+Cancelling the current running simulation job
+Found SageMaker simulation job name, cancelling the job
+Successfully cancelled the simulation job
+08:13:09 INFO:[NodeMonitor] Stopping Node monitoring
+08:13:09 INFO:[NodeMonitor] Node monitoring closed
